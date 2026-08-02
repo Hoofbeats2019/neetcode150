@@ -1,5 +1,8 @@
 """Largest Rectangle in Histogram.
 
+Created: 2 August 2026
+Created by: Yanlong Su
+
 You are given an array of integers ``heights`` where ``heights[i]`` represents
 the height of a bar. The width of each bar is 1.
 
