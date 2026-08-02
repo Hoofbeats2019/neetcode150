@@ -1,6 +1,6 @@
 import unittest
 
-from solutions.stack.largest_rectangle_in_histogram import Solution
+from solutions.largest_rectangle_in_histogram import Solution
 
 
 class TestLargestRectangleArea(unittest.TestCase):
