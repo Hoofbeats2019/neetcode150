@@ -2,6 +2,17 @@
 
 My solutions and learning notes for the NeetCode 150 roadmap.
 
+## Repository standards
+
+The following rules apply to every problem and solution in this repository:
+
+- Include the problem description in the solution file.
+- Include worked examples with their inputs and expected outputs.
+- Provide test functions in the solution file so the worked examples can be
+  tested directly by running that file.
+- Include unit tests in the `tests` directory, covering the worked examples and
+  relevant edge cases.
+
 ## Progress
 
 | Problem | Category | Status | Approach | Time | Space |
@@ -10,6 +21,7 @@ My solutions and learning notes for the NeetCode 150 roadmap.
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
+| [Find Minimum in Rotated Sorted Array](solutions/find_minimum_in_rotated_sorted_array.py) | Binary Search | Solved | Compare the middle and rightmost elements to locate the rotation point | O(log n) | O(1) |
 
 ## Learning notes
 
@@ -39,3 +51,10 @@ My solutions and learning notes for the NeetCode 150 roadmap.
 - At rate `k`, a pile requires `ceil(pile / k)` hours; integer ceiling division computes this as `(pile + k - 1) // k`.
 - If a rate is fast enough, every higher rate is also fast enough, so feasibility is monotonic.
 - Binary search keeps a feasible middle rate as a candidate and discards a middle rate that is too slow.
+
+### Find Minimum in Rotated Sorted Array
+
+- Comparing the middle element with the rightmost element identifies which half contains the rotation point.
+- When the middle element is greater, the minimum must be strictly to its right.
+- Otherwise, the middle element might be the minimum, so it remains in the search range.
+- The boundaries eventually meet at the minimum element.
