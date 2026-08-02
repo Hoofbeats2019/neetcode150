@@ -9,6 +9,7 @@ My solutions and learning notes for the NeetCode 150 roadmap.
 | [Largest Rectangle in Histogram](solutions/largest_rectangle_in_histogram.py) | Stack | Solved | Monotonic stack with left and right boundaries | O(n) | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
+| [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
 
 ## Learning notes
 
@@ -31,3 +32,10 @@ My solutions and learning notes for the NeetCode 150 roadmap.
 - A second binary search looks for the target within that row.
 - Index boundaries avoid copying matrix elements or creating another list.
 - The two searches take O(log m + log n), equivalent to O(log(m x n)).
+
+### Koko Eating Bananas
+
+- The possible eating rates range from 1 to the largest pile.
+- At rate `k`, a pile requires `ceil(pile / k)` hours; integer ceiling division computes this as `(pile + k - 1) // k`.
+- If a rate is fast enough, every higher rate is also fast enough, so feasibility is monotonic.
+- Binary search keeps a feasible middle rate as a candidate and discards a middle rate that is too slow.
