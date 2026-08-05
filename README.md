@@ -22,6 +22,7 @@ The following rules apply to every problem and solution in this repository:
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
 | [Find Minimum in Rotated Sorted Array](solutions/find_minimum_in_rotated_sorted_array.py) | Binary Search | Solved | Compare the middle and rightmost elements to locate the rotation point | O(log n) | O(1) |
+| [Search in Rotated Sorted Array](solutions/search_in_rotated_sorted_array.py) | Binary Search | Solved | Find the rotation point, choose the target's sorted side, then binary search | O(log n) | O(1) |
 
 ## Learning notes
 
@@ -58,3 +59,11 @@ The following rules apply to every problem and solution in this repository:
 - When the middle element is greater, the minimum must be strictly to its right.
 - Otherwise, the middle element might be the minimum, so it remains in the search range.
 - The boundaries eventually meet at the minimum element.
+
+### Search in Rotated Sorted Array
+
+- First, binary search for the index of the minimum element, which is the rotation point.
+- The rotation point divides the array into two ascending sections.
+- Compare the target with the first element to choose the left or right sorted section.
+- Run a standard binary search only within the selected section.
+- The two consecutive binary searches take O(log n) time in total and O(1) space.
