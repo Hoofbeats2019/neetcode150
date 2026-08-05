@@ -23,6 +23,7 @@ The following rules apply to every problem and solution in this repository:
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
 | [Find Minimum in Rotated Sorted Array](solutions/find_minimum_in_rotated_sorted_array.py) | Binary Search | Solved | Compare the middle and rightmost elements to locate the rotation point | O(log n) | O(1) |
 | [Search in Rotated Sorted Array](solutions/search_in_rotated_sorted_array.py) | Binary Search | Solved | Find the rotation point, choose the target's sorted side, then binary search | O(log n) | O(1) |
+| [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 
 ## Learning notes
 
@@ -67,3 +68,10 @@ The following rules apply to every problem and solution in this repository:
 - Compare the target with the first element to choose the left or right sorted section.
 - Run a standard binary search only within the selected section.
 - The two consecutive binary searches take O(log n) time in total and O(1) space.
+
+### Median of Two Sorted Arrays
+
+- Always binary search the shorter array so every partition considered in the longer array remains valid.
+- Choose the second partition so the combined left side contains half of all elements.
+- A partition is valid when both left-side boundary values are no greater than the opposite right-side boundary values.
+- For an odd total length, the median is the largest left-side value; for an even total length, average the largest left-side and smallest right-side values.
