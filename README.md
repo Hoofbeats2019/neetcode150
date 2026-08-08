@@ -31,6 +31,7 @@ The following rules apply to every problem and solution in this repository:
 | [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
 | [Remove Nth Node From End of List](solutions/remove_nth_node_from_end_of_list.py) | Linked List | Solved | Keep fast ahead of slow and track slow's previous node | O(n) | O(1) |
 | [Copy Linked List with Random Pointer](solutions/copy_linked_list_with_random_pointer.py) | Linked List | Solved | Map each original node to its copied node in two passes | O(n) | O(n) |
+| [Find the Duplicate Number](solutions/find_the_duplicate_number.py) | Linked List | Solved | Floyd's cycle detection finds the cycle entrance | O(n) | O(1) |
 
 ## Learning notes
 
@@ -132,3 +133,11 @@ The following rules apply to every problem and solution in this repository:
 - Map each original node object to its corresponding copied node; values cannot identify nodes because they may repeat.
 - Traverse the original list again and use the map to assign each copied node's `random` pointer.
 - Looking up the copied random target prevents pointers in the copied list from referring to original nodes.
+
+### Find the Duplicate Number
+
+- Treat each array value as the index of the next position, forming a linked structure.
+- Since n + 1 positions point into only n possible positions, the duplicate creates a cycle entrance.
+- Move a slow pointer one step and a fast pointer two steps until they meet inside the cycle.
+- Reset one pointer to the start and move both one step at a time; their next meeting is the duplicate.
+- The pointers use constant extra space and do not modify the input array.
