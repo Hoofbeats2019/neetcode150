@@ -25,6 +25,7 @@ The following rules apply to every problem and solution in this repository:
 | [Search in Rotated Sorted Array](solutions/search_in_rotated_sorted_array.py) | Binary Search | Solved | Find the rotation point, choose the target's sorted side, then binary search | O(log n) | O(1) |
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 | [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
+| [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
 
 ## Learning notes
 
@@ -83,3 +84,10 @@ The following rules apply to every problem and solution in this repository:
 - Save the next node before changing the current node's `next` pointer, or the rest of the list will be lost.
 - Redirect the current node to the previous node, then advance both traversal references.
 - When traversal finishes, the previous node is the new head of the reversed list.
+
+### Merge Two Sorted Linked Lists
+
+- Keep references to both the head and tail of the merged result.
+- Compare the current nodes and attach the node with the smaller value.
+- Advance only the input list whose node was attached.
+- When one list is exhausted, attach the remaining part of the other sorted list.
