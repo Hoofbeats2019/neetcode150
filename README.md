@@ -28,6 +28,7 @@ The following rules apply to every problem and solution in this repository:
 | [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
 | [Linked List Cycle Detection](solutions/linked_list_cycle_detection.py) | Linked List | Solved | Slow and fast pointers detect whether traversal repeats | O(n) | O(1) |
 | [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
+| [Remove Nth Node From End of List](solutions/remove_nth_node_from_end_of_list.py) | Linked List | Solved | Keep fast ahead of slow and track slow's previous node | O(n) | O(1) |
 
 ## Learning notes
 
@@ -107,3 +108,10 @@ The following rules apply to every problem and solution in this repository:
 - Reverse the second half in place so its nodes are ordered from the original tail inward.
 - Merge the halves by alternately attaching one node from each half.
 - Relinking the existing nodes preserves their values and uses constant extra space.
+
+### Remove Nth Node From End of List
+
+- Move the fast pointer `n - 1` nodes ahead so slow reaches the node to remove when fast reaches the tail.
+- Advance the previous, slow, and fast pointers together while traversing the list.
+- Use the previous pointer to bypass the node selected by slow.
+- When previous is `None`, slow is the head, so return the second node as the new head.
