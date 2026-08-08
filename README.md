@@ -29,6 +29,7 @@ The following rules apply to every problem and solution in this repository:
 | [Linked List Cycle Detection](solutions/linked_list_cycle_detection.py) | Linked List | Solved | Slow and fast pointers detect whether traversal repeats | O(n) | O(1) |
 | [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
 | [Remove Nth Node From End of List](solutions/remove_nth_node_from_end_of_list.py) | Linked List | Solved | Keep fast ahead of slow and track slow's previous node | O(n) | O(1) |
+| [Copy Linked List with Random Pointer](solutions/copy_linked_list_with_random_pointer.py) | Linked List | Solved | Map each original node to its copied node in two passes | O(n) | O(n) |
 
 ## Learning notes
 
@@ -115,3 +116,10 @@ The following rules apply to every problem and solution in this repository:
 - Advance the previous, slow, and fast pointers together while traversing the list.
 - Use the previous pointer to bypass the node selected by slow.
 - When previous is `None`, slow is the head, so return the second node as the new head.
+
+### Copy Linked List with Random Pointer
+
+- First copy every node and connect the copied list's `next` pointers.
+- Map each original node object to its corresponding copied node; values cannot identify nodes because they may repeat.
+- Traverse the original list again and use the map to assign each copied node's `random` pointer.
+- Looking up the copied random target prevents pointers in the copied list from referring to original nodes.
