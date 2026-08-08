@@ -26,6 +26,7 @@ The following rules apply to every problem and solution in this repository:
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 | [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
 | [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
+| [Add Two Numbers](solutions/add_two_numbers.py) | Linked List | Solved | Add corresponding digits while carrying overflow forward | O(max(n, m)) | O(max(n, m)) |
 | [Linked List Cycle Detection](solutions/linked_list_cycle_detection.py) | Linked List | Solved | Slow and fast pointers detect whether traversal repeats | O(n) | O(1) |
 | [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
 | [Remove Nth Node From End of List](solutions/remove_nth_node_from_end_of_list.py) | Linked List | Solved | Keep fast ahead of slow and track slow's previous node | O(n) | O(1) |
@@ -95,6 +96,14 @@ The following rules apply to every problem and solution in this repository:
 - Compare the current nodes and attach the node with the smaller value.
 - Advance only the input list whose node was attached.
 - When one list is exhausted, attach the remaining part of the other sorted list.
+
+### Add Two Numbers
+
+- Traverse both reverse-order lists together from their least significant digits.
+- Add the available digits and the carry from the previous position.
+- Store `total % 10` in the new result node and carry `total // 10` forward.
+- Continue while either list has a node or a final carry remains.
+
 ### Linked List Cycle Detection
 
 - Start slow and fast pointers at the head of the list.
