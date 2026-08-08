@@ -26,6 +26,7 @@ The following rules apply to every problem and solution in this repository:
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 | [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
 | [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
+| [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
 
 ## Learning notes
 
@@ -91,3 +92,10 @@ The following rules apply to every problem and solution in this repository:
 - Compare the current nodes and attach the node with the smaller value.
 - Advance only the input list whose node was attached.
 - When one list is exhausted, attach the remaining part of the other sorted list.
+### Reorder Linked List
+
+- Use slow and fast pointers to split the list into two halves.
+- Disconnect the halves before reversing the second half to avoid creating a cycle.
+- Reverse the second half in place so its nodes are ordered from the original tail inward.
+- Merge the halves by alternately attaching one node from each half.
+- Relinking the existing nodes preserves their values and uses constant extra space.
