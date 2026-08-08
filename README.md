@@ -24,6 +24,7 @@ The following rules apply to every problem and solution in this repository:
 | [Find Minimum in Rotated Sorted Array](solutions/find_minimum_in_rotated_sorted_array.py) | Binary Search | Solved | Compare the middle and rightmost elements to locate the rotation point | O(log n) | O(1) |
 | [Search in Rotated Sorted Array](solutions/search_in_rotated_sorted_array.py) | Binary Search | Solved | Find the rotation point, choose the target's sorted side, then binary search | O(log n) | O(1) |
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
+| [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
 
 ## Learning notes
 
@@ -75,3 +76,10 @@ The following rules apply to every problem and solution in this repository:
 - Choose the second partition so the combined left side contains half of all elements.
 - A partition is valid when both left-side boundary values are no greater than the opposite right-side boundary values.
 - For an odd total length, the median is the largest left-side value; for an even total length, average the largest left-side and smallest right-side values.
+
+### Reverse Linked List
+
+- Keep references to the previous, current, and next nodes while traversing the list.
+- Save the next node before changing the current node's `next` pointer, or the rest of the list will be lost.
+- Redirect the current node to the previous node, then advance both traversal references.
+- When traversal finishes, the previous node is the new head of the reversed list.
