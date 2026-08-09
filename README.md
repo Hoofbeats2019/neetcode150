@@ -32,6 +32,7 @@ The following rules apply to every problem and solution in this repository:
 | [Remove Nth Node From End of List](solutions/remove_nth_node_from_end_of_list.py) | Linked List | Solved | Keep fast ahead of slow and track slow's previous node | O(n) | O(1) |
 | [Copy Linked List with Random Pointer](solutions/copy_linked_list_with_random_pointer.py) | Linked List | Solved | Map each original node to its copied node in two passes | O(n) | O(n) |
 | [Find the Duplicate Number](solutions/find_the_duplicate_number.py) | Linked List | Solved | Floyd's cycle detection finds the cycle entrance | O(n) | O(1) |
+| [LRU Cache](solutions/lru_cache.py) | Linked List | Solved | Hash map with a doubly linked usage-order list | O(1) average per operation | O(capacity) |
 
 ## Learning notes
 
@@ -141,3 +142,11 @@ The following rules apply to every problem and solution in this repository:
 - Move a slow pointer one step and a fast pointer two steps until they meet inside the cycle.
 - Reset one pointer to the start and move both one step at a time; their next meeting is the duplicate.
 - The pointers use constant extra space and do not modify the input array.
+
+### LRU Cache
+
+- Map every key directly to its doubly linked-list node for average O(1) lookup.
+- Keep the least recently used node beside the dummy head and the most recently used node beside the dummy tail.
+- A successful `get` and every `put` move the affected node to the most-recently-used end.
+- When the cache exceeds its capacity, remove the node beside the head from both the list and the map.
+- Dummy boundary nodes avoid special cases when inserting or removing the first or last cache entry.
