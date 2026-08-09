@@ -25,6 +25,7 @@ The following rules apply to every problem and solution in this repository:
 | [Search in Rotated Sorted Array](solutions/search_in_rotated_sorted_array.py) | Binary Search | Solved | Find the rotation point, choose the target's sorted side, then binary search | O(log n) | O(1) |
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 | [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
+| [Reverse Nodes in K-Group](solutions/reverse_nodes_in_k_group.py) | Linked List | Solved | Scan ahead, then iteratively reverse each complete group | O(n) | O(1) |
 | [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
 | [Merge K Sorted Linked Lists](solutions/merge_k_sorted_linked_lists.py) | Linked List | Solved | Merge neighboring lists in balanced rounds | O(n log k) | O(1) |
 | [Add Two Numbers](solutions/add_two_numbers.py) | Linked List | Solved | Add corresponding digits while carrying overflow forward | O(max(n, m)) | O(max(n, m)) |
@@ -92,6 +93,14 @@ The following rules apply to every problem and solution in this repository:
 - Save the next node before changing the current node's `next` pointer, or the rest of the list will be lost.
 - Redirect the current node to the previous node, then advance both traversal references.
 - When traversal finishes, the previous node is the new head of the reversed list.
+
+### Reverse Nodes in K-Group
+
+- Scan ahead from the previous group's boundary to confirm that k nodes remain.
+- Leave the final nodes unchanged when that scan reaches the end early.
+- Reverse a complete group by redirecting each node to its predecessor.
+- Connect the previous group to the new head and the new tail to the next group.
+- Relinking the existing nodes preserves their values and uses constant extra space.
 
 ### Merge Two Sorted Linked Lists
 
