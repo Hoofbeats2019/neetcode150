@@ -26,6 +26,7 @@ The following rules apply to every problem and solution in this repository:
 | [Median of Two Sorted Arrays](solutions/median_of_two_sorted_arrays.py) | Binary Search | Solved | Binary search for a valid partition across both arrays | O(log(min(m, n))) | O(1) |
 | [Reverse Linked List](solutions/reverse_linked_list.py) | Linked List | Solved | Iteratively redirect each node to its previous node | O(n) | O(1) |
 | [Merge Two Sorted Linked Lists](solutions/merge_two_sorted_linked_lists.py) | Linked List | Solved | Compare current nodes and append the smaller node | O(n + m) | O(1) |
+| [Merge K Sorted Linked Lists](solutions/merge_k_sorted_linked_lists.py) | Linked List | Solved | Merge neighboring lists in balanced rounds | O(n log k) | O(1) |
 | [Add Two Numbers](solutions/add_two_numbers.py) | Linked List | Solved | Add corresponding digits while carrying overflow forward | O(max(n, m)) | O(max(n, m)) |
 | [Linked List Cycle Detection](solutions/linked_list_cycle_detection.py) | Linked List | Solved | Slow and fast pointers detect whether traversal repeats | O(n) | O(1) |
 | [Reorder Linked List](solutions/reorder_linked_list.py) | Linked List | Solved | Split, reverse the second half, then merge alternately | O(n) | O(1) |
@@ -98,6 +99,14 @@ The following rules apply to every problem and solution in this repository:
 - Compare the current nodes and attach the node with the smaller value.
 - Advance only the input list whose node was attached.
 - When one list is exhausted, attach the remaining part of the other sorted list.
+
+### Merge K Sorted Linked Lists
+
+- Merge neighboring lists in rounds so the merged lists remain balanced in size.
+- Double the interval between paired list heads after each round.
+- An unpaired list remains in place until it can be merged in a later round.
+- Relink the existing nodes to avoid allocating a second collection of nodes.
+- Each node participates in at most one merge per round, producing O(n log k) time.
 
 ### Add Two Numbers
 
