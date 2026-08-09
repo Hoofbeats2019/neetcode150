@@ -39,6 +39,7 @@ The following rules apply to every problem and solution in this repository:
 | [Maximum Depth of Binary Tree](solutions/maximum_depth_of_binary_tree.py) | Trees | Solved | Recursively compare the left and right subtree depths | O(n) | O(h) |
 | [Diameter of Binary Tree](solutions/diameter_of_binary_tree.py) | Trees | Solved | Recursively combine left and right subtree depths | O(n) | O(h) |
 | [Balanced Binary Tree](solutions/balanced_binary_tree.py) | Trees | Solved | Return each subtree's balance state and height from DFS | O(n) | O(h) |
+| [Same Binary Tree](solutions/same_binary_tree.py) | Trees | Solved | Recursively compare corresponding nodes in both trees | O(n) | O(h) |
 
 ## Learning notes
 
@@ -203,3 +204,10 @@ The following rules apply to every problem and solution in this repository:
 - A node is balanced only when both child subtrees are balanced and their heights differ by at most one.
 - Return the current height with the balance state so each node's height is calculated only once.
 - The recursion stack uses O(h) space, where h is the tree height.
+
+### Same Binary Tree
+
+- Traverse both trees together so each recursive call compares corresponding nodes.
+- Two missing nodes are equivalent, while exactly one missing node means the structures differ.
+- When both nodes exist, their values and both pairs of child subtrees must match.
+- The recursion stack uses O(h) space, where h is the height of the tree.
