@@ -41,6 +41,7 @@ The following rules apply to every problem and solution in this repository:
 | [Balanced Binary Tree](solutions/balanced_binary_tree.py) | Trees | Solved | Return each subtree's balance state and height from DFS | O(n) | O(h) |
 | [Same Binary Tree](solutions/same_binary_tree.py) | Trees | Solved | Recursively compare corresponding nodes in both trees | O(n) | O(h) |
 | [Lowest Common Ancestor in Binary Search Tree](solutions/lowest_common_ancestor_in_binary_search_tree.py) | Trees | Solved | Follow BST ordering until the target paths split | O(h) | O(1) |
+| [Binary Tree Level Order Traversal](solutions/binary_tree_level_order_traversal.py) | Trees | Solved | Breadth-first search with a queue grouped by level size | O(n) | O(w) |
 
 ## Learning notes
 
@@ -219,3 +220,10 @@ The following rules apply to every problem and solution in this repository:
 - When both target values are larger than the current value, their lowest common ancestor must be in the right subtree.
 - Otherwise, the target paths split at the current node, or the current node is one of the targets.
 - Iteratively following only the shared search path takes O(h) time and O(1) extra space.
+
+### Binary Tree Level Order Traversal
+
+- A queue processes nodes in breadth-first order, preserving the left-to-right order within each level.
+- Record the queue size before processing a level so children added during that iteration remain in the queue for the next level.
+- Collect the values of exactly that many nodes, then append the completed level to the result.
+- The queue uses O(w) space, where w is the maximum number of nodes at any level.
