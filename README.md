@@ -40,6 +40,7 @@ The following rules apply to every problem and solution in this repository:
 | [Diameter of Binary Tree](solutions/diameter_of_binary_tree.py) | Trees | Solved | Recursively combine left and right subtree depths | O(n) | O(h) |
 | [Balanced Binary Tree](solutions/balanced_binary_tree.py) | Trees | Solved | Return each subtree's balance state and height from DFS | O(n) | O(h) |
 | [Same Binary Tree](solutions/same_binary_tree.py) | Trees | Solved | Recursively compare corresponding nodes in both trees | O(n) | O(h) |
+| [Lowest Common Ancestor in Binary Search Tree](solutions/lowest_common_ancestor_in_binary_search_tree.py) | Trees | Solved | Follow BST ordering until the target paths split | O(h) | O(1) |
 
 ## Learning notes
 
@@ -211,3 +212,10 @@ The following rules apply to every problem and solution in this repository:
 - Two missing nodes are equivalent, while exactly one missing node means the structures differ.
 - When both nodes exist, their values and both pairs of child subtrees must match.
 - The recursion stack uses O(h) space, where h is the height of the tree.
+
+### Lowest Common Ancestor in Binary Search Tree
+
+- When both target values are smaller than the current value, their lowest common ancestor must be in the left subtree.
+- When both target values are larger than the current value, their lowest common ancestor must be in the right subtree.
+- Otherwise, the target paths split at the current node, or the current node is one of the targets.
+- Iteratively following only the shared search path takes O(h) time and O(1) extra space.
