@@ -38,6 +38,7 @@ The following rules apply to every problem and solution in this repository:
 | [Invert Binary Tree](solutions/invert_binary_tree.py) | Trees | Solved | Recursively swap each node's left and right subtrees | O(n) | O(h) |
 | [Maximum Depth of Binary Tree](solutions/maximum_depth_of_binary_tree.py) | Trees | Solved | Recursively compare the left and right subtree depths | O(n) | O(h) |
 | [Diameter of Binary Tree](solutions/diameter_of_binary_tree.py) | Trees | Solved | Recursively combine left and right subtree depths | O(n) | O(h) |
+| [Balanced Binary Tree](solutions/balanced_binary_tree.py) | Trees | Solved | Return each subtree's balance state and height from DFS | O(n) | O(h) |
 
 ## Learning notes
 
@@ -193,4 +194,12 @@ The following rules apply to every problem and solution in this repository:
 - A missing child has depth -1, making a leaf's depth zero and keeping all path lengths measured in edges.
 - At every node, add the two child depths and two connecting edges to find the longest path through that node.
 - Keep the largest path found because the tree's diameter does not need to pass through the root.
+- The recursion stack uses O(h) space, where h is the tree height.
+
+### Balanced Binary Tree
+
+- An empty subtree is balanced and has height zero.
+- Recursively obtain both the balance state and height of each child subtree.
+- A node is balanced only when both child subtrees are balanced and their heights differ by at most one.
+- Return the current height with the balance state so each node's height is calculated only once.
 - The recursion stack uses O(h) space, where h is the tree height.
