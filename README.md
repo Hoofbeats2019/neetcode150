@@ -37,6 +37,7 @@ The following rules apply to every problem and solution in this repository:
 | [LRU Cache](solutions/lru_cache.py) | Linked List | Solved | Hash map with a doubly linked usage-order list | O(1) average per operation | O(capacity) |
 | [Invert Binary Tree](solutions/invert_binary_tree.py) | Trees | Solved | Recursively swap each node's left and right subtrees | O(n) | O(h) |
 | [Maximum Depth of Binary Tree](solutions/maximum_depth_of_binary_tree.py) | Trees | Solved | Recursively compare the left and right subtree depths | O(n) | O(h) |
+| [Diameter of Binary Tree](solutions/diameter_of_binary_tree.py) | Trees | Solved | Recursively combine left and right subtree depths | O(n) | O(h) |
 
 ## Learning notes
 
@@ -184,4 +185,12 @@ The following rules apply to every problem and solution in this repository:
 - Recursively find the depths of the left and right subtrees.
 - Choose the larger subtree depth because the answer follows the longest path.
 - Add one to include the current node in that path.
+- The recursion stack uses O(h) space, where h is the tree height.
+
+### Diameter of Binary Tree
+
+- Recursively calculate the maximum edge depth of each left and right subtree.
+- A missing child has depth -1, making a leaf's depth zero and keeping all path lengths measured in edges.
+- At every node, add the two child depths and two connecting edges to find the longest path through that node.
+- Keep the largest path found because the tree's diameter does not need to pass through the root.
 - The recursion stack uses O(h) space, where h is the tree height.
