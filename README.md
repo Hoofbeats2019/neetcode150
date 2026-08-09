@@ -42,6 +42,7 @@ The following rules apply to every problem and solution in this repository:
 | [Same Binary Tree](solutions/same_binary_tree.py) | Trees | Solved | Recursively compare corresponding nodes in both trees | O(n) | O(h) |
 | [Lowest Common Ancestor in Binary Search Tree](solutions/lowest_common_ancestor_in_binary_search_tree.py) | Trees | Solved | Follow BST ordering until the target paths split | O(h) | O(1) |
 | [Binary Tree Level Order Traversal](solutions/binary_tree_level_order_traversal.py) | Trees | Solved | Breadth-first search with a queue grouped by level size | O(n) | O(w) |
+| [Binary Tree Right Side View](solutions/binary_tree_right_side_view.py) | Trees | Solved | Right-first breadth-first search recording the first node at each level | O(n) | O(w) |
 
 ## Learning notes
 
@@ -226,4 +227,12 @@ The following rules apply to every problem and solution in this repository:
 - A queue processes nodes in breadth-first order, preserving the left-to-right order within each level.
 - Record the queue size before processing a level so children added during that iteration remain in the queue for the next level.
 - Collect the values of exactly that many nodes, then append the completed level to the result.
+- The queue uses O(w) space, where w is the maximum number of nodes at any level.
+
+### Binary Tree Right Side View
+
+- Process the tree one level at a time using breadth-first search.
+- Add each right child before its left sibling so the next level is ordered from right to left.
+- Record the node at the front of the queue before processing each level because it is the rightmost visible node.
+- Capture the level size before adding children so each iteration processes exactly one level.
 - The queue uses O(w) space, where w is the maximum number of nodes at any level.
