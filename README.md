@@ -36,6 +36,7 @@ The following rules apply to every problem and solution in this repository:
 | [Find the Duplicate Number](solutions/find_the_duplicate_number.py) | Linked List | Solved | Floyd's cycle detection finds the cycle entrance | O(n) | O(1) |
 | [LRU Cache](solutions/lru_cache.py) | Linked List | Solved | Hash map with a doubly linked usage-order list | O(1) average per operation | O(capacity) |
 | [Invert Binary Tree](solutions/invert_binary_tree.py) | Trees | Solved | Recursively swap each node's left and right subtrees | O(n) | O(h) |
+| [Maximum Depth of Binary Tree](solutions/maximum_depth_of_binary_tree.py) | Trees | Solved | Recursively compare the left and right subtree depths | O(n) | O(h) |
 
 ## Learning notes
 
@@ -175,4 +176,12 @@ The following rules apply to every problem and solution in this repository:
 - An empty tree is the recursive base case and remains unchanged.
 - Swap each node's left and right children, including when only one child exists.
 - Recursively invert both swapped subtrees so every node in the tree is visited.
+- The recursion stack uses O(h) space, where h is the tree height.
+
+### Maximum Depth of Binary Tree
+
+- An empty tree is the recursive base case and has depth zero.
+- Recursively find the depths of the left and right subtrees.
+- Choose the larger subtree depth because the answer follows the longest path.
+- Add one to include the current node in that path.
 - The recursion stack uses O(h) space, where h is the tree height.
