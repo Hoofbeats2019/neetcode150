@@ -47,6 +47,7 @@ The following rules apply to every problem and solution in this repository:
 | [Valid Binary Search Tree](solutions/valid_binary_search_tree.py) | Trees | Solved | Recursive DFS carrying strict lower and upper bounds | O(n) | O(h) |
 | [Kth Smallest Integer in BST](solutions/kth_smallest_integer_in_bst.py) | Trees | Solved | Recursive in-order traversal stored in a list | O(n) | O(n) |
 | [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
+| [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 
 ## Learning notes
 
@@ -271,3 +272,11 @@ The following rules apply to every problem and solution in this repository:
 - The root's inorder position separates the left and right subtree ranges.
 - The number of values in the left inorder range identifies the matching preorder boundary.
 - Index boundaries avoid copying traversal slices during recursive calls.
+
+### Binary Tree Maximum Path Sum
+
+- Recursively calculate the best single-branch gain from each child.
+- Ignore a negative child gain because excluding it produces a larger path sum.
+- A complete path through a node may combine both child gains with the node's value.
+- The gain returned to a parent uses at most one child because the path cannot branch again.
+- Initialize the global maximum below every possible node value so all-negative trees are handled correctly.
