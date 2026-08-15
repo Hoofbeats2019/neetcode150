@@ -51,6 +51,7 @@ The following rules apply to every problem and solution in this repository:
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
+| [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
 
 ## Learning notes
 
@@ -306,3 +307,10 @@ The following rules apply to every problem and solution in this repository:
 - Reinsert a positive difference in its correct sorted position; equal stones leave nothing to reinsert.
 - Continue until zero or one stone remains, then return zero or the remaining weight.
 - Ordered list insertion can shift O(n) elements per smash, producing O(n²) time and O(1) auxiliary space.
+
+### K Closest Points to Origin
+
+- Squared distance preserves the same ordering as Euclidean distance, so calculating a square root is unnecessary.
+- Store negative distances to simulate a max-heap using Python's min-heap operations.
+- Keep at most k points in the heap by removing the farthest point whenever its size exceeds k.
+- After every point has been processed, the heap contains the k closest points in any order.
