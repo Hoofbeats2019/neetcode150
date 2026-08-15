@@ -44,6 +44,7 @@ The following rules apply to every problem and solution in this repository:
 | [Binary Tree Level Order Traversal](solutions/binary_tree_level_order_traversal.py) | Trees | Solved | Breadth-first search with a queue grouped by level size | O(n) | O(w) |
 | [Binary Tree Right Side View](solutions/binary_tree_right_side_view.py) | Trees | Solved | Right-first breadth-first search recording the first node at each level | O(n) | O(w) |
 | [Count Good Nodes in Binary Tree](solutions/count_good_nodes_in_binary_tree.py) | Trees | Solved | Recursive DFS carrying the maximum value on the root-to-node path | O(n) | O(h) |
+| [Valid Binary Search Tree](solutions/valid_binary_search_tree.py) | Trees | Solved | Recursive DFS carrying strict lower and upper bounds | O(n) | O(h) |
 
 ## Learning notes
 
@@ -244,4 +245,12 @@ The following rules apply to every problem and solution in this repository:
 - A node is good when its value is greater than or equal to the maximum from its ancestors.
 - Update the path maximum before recursively visiting the current node's children.
 - Every node is reached exactly once, so a visited set is unnecessary for a binary tree.
+- The recursion stack uses O(h) space, where h is the height of the tree.
+
+### Valid Binary Search Tree
+
+- Recursive DFS can validate both the left and right subtrees.
+- Each recursive call carries strict lower and upper bounds established by the node's ancestors.
+- The current node becomes the upper bound for its left subtree and the lower bound for its right subtree.
+- Duplicate values are invalid because the required inequalities are strict.
 - The recursion stack uses O(h) space, where h is the height of the tree.
