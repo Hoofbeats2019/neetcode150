@@ -48,6 +48,7 @@ The following rules apply to every problem and solution in this repository:
 | [Kth Smallest Integer in BST](solutions/kth_smallest_integer_in_bst.py) | Trees | Solved | Recursive in-order traversal stored in a list | O(n) | O(n) |
 | [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
+| [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
 
 ## Learning notes
 
@@ -280,3 +281,11 @@ The following rules apply to every problem and solution in this repository:
 - A complete path through a node may combine both child gains with the node's value.
 - The gain returned to a parent uses at most one child because the path cannot branch again.
 - Initialize the global maximum below every possible node value so all-negative trees are handled correctly.
+
+### Serialize and Deserialize Binary Tree
+
+- A preorder traversal writes each node before its left and right subtrees.
+- An explicit null marker preserves missing children and therefore the exact tree structure.
+- `join` combines the recorded values into one string, and `split` restores the value tokens.
+- During deserialization, a shared index advances once per value or null marker.
+- Each node is processed once, so serialization and deserialization both take O(n) time.
