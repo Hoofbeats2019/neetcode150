@@ -49,6 +49,7 @@ The following rules apply to every problem and solution in this repository:
 | [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
+| [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 
 ## Learning notes
 
@@ -289,3 +290,10 @@ The following rules apply to every problem and solution in this repository:
 - `join` combines the recorded values into one string, and `split` restores the value tokens.
 - During deserialization, a shared index advances once per value or null marker.
 - Each node is processed once, so serialization and deserialization both take O(n) time.
+
+### Kth Largest Element in a Stream
+
+- Sort the stream from largest to smallest so the kth largest value is stored at index `k - 1`.
+- Each call to `add` appends the new value and restores the descending order before returning the result.
+- Repeated values count as separate positions in the sorted order.
+- Sorting the complete stream makes each addition O(n log n), while storing all values uses O(n) space.
