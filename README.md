@@ -43,6 +43,7 @@ The following rules apply to every problem and solution in this repository:
 | [Lowest Common Ancestor in Binary Search Tree](solutions/lowest_common_ancestor_in_binary_search_tree.py) | Trees | Solved | Follow BST ordering until the target paths split | O(h) | O(1) |
 | [Binary Tree Level Order Traversal](solutions/binary_tree_level_order_traversal.py) | Trees | Solved | Breadth-first search with a queue grouped by level size | O(n) | O(w) |
 | [Binary Tree Right Side View](solutions/binary_tree_right_side_view.py) | Trees | Solved | Right-first breadth-first search recording the first node at each level | O(n) | O(w) |
+| [Count Good Nodes in Binary Tree](solutions/count_good_nodes_in_binary_tree.py) | Trees | Solved | Recursive DFS carrying the maximum value on the root-to-node path | O(n) | O(h) |
 
 ## Learning notes
 
@@ -236,3 +237,11 @@ The following rules apply to every problem and solution in this repository:
 - Record the node at the front of the queue before processing each level because it is the rightmost visible node.
 - Capture the level size before adding children so each iteration processes exactly one level.
 - The queue uses O(w) space, where w is the maximum number of nodes at any level.
+
+### Count Good Nodes in Binary Tree
+
+- Carry the largest value seen on the root-to-node path through each recursive DFS call.
+- A node is good when its value is greater than or equal to the maximum from its ancestors.
+- Update the path maximum before recursively visiting the current node's children.
+- Every node is reached exactly once, so a visited set is unnecessary for a binary tree.
+- The recursion stack uses O(h) space, where h is the height of the tree.
