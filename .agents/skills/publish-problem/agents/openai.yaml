@@ -1,0 +1,7 @@
+interface:
+  display_name: "Publish NeatCode Problem"
+  short_description: "Publish, review, merge, and clean up a problem"
+  default_prompt: "Use $publish-problem to test, publish, review, and merge the current problem changes."
+
+policy:
+  allow_implicit_invocation: false
