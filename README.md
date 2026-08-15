@@ -46,6 +46,7 @@ The following rules apply to every problem and solution in this repository:
 | [Count Good Nodes in Binary Tree](solutions/count_good_nodes_in_binary_tree.py) | Trees | Solved | Recursive DFS carrying the maximum value on the root-to-node path | O(n) | O(h) |
 | [Valid Binary Search Tree](solutions/valid_binary_search_tree.py) | Trees | Solved | Recursive DFS carrying strict lower and upper bounds | O(n) | O(h) |
 | [Kth Smallest Integer in BST](solutions/kth_smallest_integer_in_bst.py) | Trees | Solved | Recursive in-order traversal stored in a list | O(n) | O(n) |
+| [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
 
 ## Learning notes
 
@@ -263,3 +264,10 @@ The following rules apply to every problem and solution in this repository:
 - Append each visited value to a list.
 - Because `k` is 1-indexed, return the value at list index `k - 1`.
 - Storing all node values makes the approach easy to follow but uses O(n) space.
+
+### Construct Binary Tree from Preorder and Inorder Traversal
+
+- The first value in a preorder range is the root of that subtree.
+- The root's inorder position separates the left and right subtree ranges.
+- The number of values in the left inorder range identifies the matching preorder boundary.
+- Index boundaries avoid copying traversal slices during recursive calls.
