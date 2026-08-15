@@ -45,6 +45,7 @@ The following rules apply to every problem and solution in this repository:
 | [Binary Tree Right Side View](solutions/binary_tree_right_side_view.py) | Trees | Solved | Right-first breadth-first search recording the first node at each level | O(n) | O(w) |
 | [Count Good Nodes in Binary Tree](solutions/count_good_nodes_in_binary_tree.py) | Trees | Solved | Recursive DFS carrying the maximum value on the root-to-node path | O(n) | O(h) |
 | [Valid Binary Search Tree](solutions/valid_binary_search_tree.py) | Trees | Solved | Recursive DFS carrying strict lower and upper bounds | O(n) | O(h) |
+| [Kth Smallest Integer in BST](solutions/kth_smallest_integer_in_bst.py) | Trees | Solved | Recursive in-order traversal stored in a list | O(n) | O(n) |
 
 ## Learning notes
 
@@ -254,3 +255,11 @@ The following rules apply to every problem and solution in this repository:
 - The current node becomes the upper bound for its left subtree and the lower bound for its right subtree.
 - Duplicate values are invalid because the required inequalities are strict.
 - The recursion stack uses O(h) space, where h is the height of the tree.
+
+### Kth Smallest Integer in BST
+
+- An in-order traversal visits a BST's values in ascending order.
+- Recursively visit the left subtree, the current node, and then the right subtree.
+- Append each visited value to a list.
+- Because `k` is 1-indexed, return the value at list index `k - 1`.
+- Storing all node values makes the approach easy to follow but uses O(n) space.
