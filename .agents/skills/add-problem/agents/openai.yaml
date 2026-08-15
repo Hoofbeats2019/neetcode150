@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add NeatCode Problem"
+  short_description: "Add a problem using repository conventions"
+  default_prompt: "Use $add-problem to scaffold or implement a NeatCode150 problem from my pseudocode."
