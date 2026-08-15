@@ -50,6 +50,7 @@ The following rules apply to every problem and solution in this repository:
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
+| [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 
 ## Learning notes
 
@@ -297,3 +298,11 @@ The following rules apply to every problem and solution in this repository:
 - Each call to `add` appends the new value and restores the descending order before returning the result.
 - Repeated values count as separate positions in the sorted order.
 - Sorting the complete stream makes each addition O(n log n), while storing all values uses O(n) space.
+
+### Last Stone Weight
+
+- Sort the stones in increasing order so the two heaviest stones are at the end.
+- Remove those two stones and calculate the heavier weight minus the lighter weight.
+- Reinsert a positive difference in its correct sorted position; equal stones leave nothing to reinsert.
+- Continue until zero or one stone remains, then return zero or the remaining weight.
+- Ordered list insertion can shift O(n) elements per smash, producing O(n²) time and O(1) auxiliary space.
