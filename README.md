@@ -53,6 +53,7 @@ The following rules apply to every problem and solution in this repository:
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
 | [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
+| [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 
 ## Learning notes
 
@@ -323,3 +324,12 @@ The following rules apply to every problem and solution in this repository:
 - A task run at time `t` can next run at time `t + n + 1`.
 - A cycle is idle only when every unfinished task is cooling down.
 - With `m` tasks, `k` task types, and `T` total cycles, simulation takes O(T + m log k) time and O(k) space.
+
+### Design Twitter
+
+- Map each user ID to that user's tweets and each follower ID to a set of direct followees.
+- Pair every tweet ID with a global timestamp because tweet IDs do not represent publication order.
+- A user's feed includes their own tweets and tweets authored by users they directly follow.
+- Following is not transitive, and a set prevents duplicate follow relationships.
+- Collect and sort all `v` visible tweets, then return the first 10 IDs in newest-first order.
+- With `p` stored tweets and `f` follow relationships, storage is O(p + f); building a feed temporarily uses O(v) more space.
