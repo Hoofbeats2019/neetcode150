@@ -56,6 +56,7 @@ The following rules apply to every problem and solution in this repository:
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
 | [Subsets](solutions/subsets.py) | Backtracking | Solved | Include/exclude choice loop | O(n × 2ⁿ) | O(n × 2ⁿ) |
+| [Subsets II](solutions/subsets_ii.py) | Backtracking | Solved | Sorted backtracking with a per-level processed dictionary | O(n × 2ⁿ) | O(n × 2ⁿ) |
 | [Combination Sum](solutions/combination_sum.py) | Backtracking | Solved | Backtracking with sum pruning and a start index | O(nᵈ × d) | O(d + k × d) |
 | [Combination Sum II](solutions/combination_sum_ii.py) | Backtracking | Solved | Sorted pop-based backtracking with same-level duplicate skipping | O(n × 2ⁿ) | O(n² + k × n) |
 | [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
@@ -355,6 +356,15 @@ The following rules apply to every problem and solution in this repository:
 - Exclusion changes nothing in the current subset, so there is nothing to undo for that choice.
 - There are `2ⁿ` subsets, and copying subsets makes the total time and returned-output space O(n × 2ⁿ).
 - The current subset and recursion stack use O(n) auxiliary space when the returned output is excluded.
+
+### Subsets II
+
+- Every partial subset is valid, so copy it into the result at the start of each recursive call.
+- Sort a copy of the input so every generated subset has one consistent value order without changing the caller's list.
+- Create a new processed-values dictionary for each recursion level and skip a value already explored by a sibling branch.
+- A fresh dictionary in deeper calls still allows repeated values within a subset, such as `[7, 7]`.
+- Recurse from the index after the chosen occurrence so each array element can be selected at most once.
+- Producing and copying all subsets takes O(n × 2ⁿ) time and output space; the current subset, recursion stack, sorted copy, and live dictionaries use O(n) auxiliary space.
 
 ### Combination Sum
 
