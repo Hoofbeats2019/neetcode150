@@ -57,6 +57,7 @@ The following rules apply to every problem and solution in this repository:
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
 | [Subsets](solutions/subsets.py) | Backtracking | Solved | Include/exclude choice loop | O(n × 2ⁿ) | O(n × 2ⁿ) |
 | [Combination Sum](solutions/combination_sum.py) | Backtracking | Solved | Backtracking with sum pruning and a start index | O(nᵈ × d) | O(d + k × d) |
+| [Combination Sum II](solutions/combination_sum_ii.py) | Backtracking | Solved | Sorted pop-based backtracking with same-level duplicate skipping | O(n × 2ⁿ) | O(n² + k × n) |
 
 ## Learning notes
 
@@ -362,3 +363,12 @@ The following rules apply to every problem and solution in this repository:
 - Restrict choices to the current `start_index` and later positions to avoid generating different orderings of the same combination.
 - Recurse with the chosen index, rather than the next index, to allow the chosen number to be reused.
 - If `d = target // min(nums)` and `k` combinations are returned, the worst-case time is O(nᵈ × d), auxiliary space is O(d), and output space is O(k × d).
+
+### Combination Sum II
+
+- Sort a copy of the candidates so duplicate values are adjacent without modifying the caller's input.
+- Give each recursive branch its own remaining-candidates list so popping a value does not affect sibling branches.
+- Passing only the candidates left after a pop ensures each candidate occurrence can be chosen at most once.
+- Skip a value when it equals the previous choice at the same recursion level, preventing duplicate combinations.
+- Remove the chosen value from the current state after recursion so the next branch starts from the correct state.
+- Copying candidate lists throughout an exponential search takes O(n × 2ⁿ) time and O(n²) auxiliary stack space; `k` results use up to O(k × n) output space.
