@@ -83,7 +83,7 @@ class Solution:
 
         def backtrack(start: int) -> None:
             """Choose the next palindrome beginning at start."""
-            # VALID RESULT CHECK: every character belongs to a palindrome.
+            # BASE CASE: the current palindrome partition includes every character.
             if start == len(s):
                 result.append(current_partition.copy())
                 return
