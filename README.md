@@ -60,6 +60,7 @@ The following rules apply to every problem and solution in this repository:
 | [Combination Sum](solutions/combination_sum.py) | Backtracking | Solved | Backtracking with sum pruning and a start index | O(nᵈ × d) | O(d + k × d) |
 | [Combination Sum II](solutions/combination_sum_ii.py) | Backtracking | Solved | Sorted pop-based backtracking with same-level duplicate skipping | O(n × 2ⁿ) | O(n² + k × n) |
 | [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
+| [Generate Parentheses](solutions/generate_parentheses.py) | Backtracking | Solved | Insert pairs with explored-state pruning | O(n² × Cₙ) | O(n × Cₙ) |
 
 ## Learning notes
 
@@ -392,3 +393,11 @@ The following rules apply to every problem and solution in this repository:
 - Remove the last choice after recursion so the next branch starts from the correct state.
 - No pruning is needed because every partial permutation can be completed with the remaining unique numbers.
 - Returning all `n!` permutations requires O(n × n!) time and output space; copied remaining lists use O(n²) auxiliary space along one recursion path.
+
+### Generate Parentheses
+
+- Begin with the empty string and insert a complete `()` pair at every possible position.
+- Inserting a well-formed pair into a well-formed string preserves well-formedness, so every explored state remains valid.
+- Different insertion positions or branches can create the same string, so an explored set prunes duplicate states before recursion.
+- A state containing `n` pairs is complete and can be added directly to the result.
+- If `Cₙ` is the nth Catalan number, creating and checking insertion candidates takes O(n² × Cₙ) time, while stored states use O(n × Cₙ) space.
