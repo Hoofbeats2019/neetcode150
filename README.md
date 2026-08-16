@@ -56,6 +56,7 @@ The following rules apply to every problem and solution in this repository:
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
 | [Subsets](solutions/subsets.py) | Backtracking | Solved | Include/exclude choice loop | O(n × 2ⁿ) | O(n × 2ⁿ) |
+| [Combination Sum](solutions/combination_sum.py) | Backtracking | Solved | Backtracking with sum pruning and a start index | O(nᵈ × d) | O(d + k × d) |
 
 ## Learning notes
 
@@ -352,3 +353,12 @@ The following rules apply to every problem and solution in this repository:
 - Exclusion changes nothing in the current subset, so there is nothing to undo for that choice.
 - There are `2ⁿ` subsets, and copying subsets makes the total time and returned-output space O(n × 2ⁿ).
 - The current subset and recursion stack use O(n) auxiliary space when the returned output is excluded.
+
+### Combination Sum
+
+- A value from `nums` may appear multiple times in one combination.
+- Combination order and value order do not affect uniqueness; only the frequency of each chosen value matters.
+- Track the current sum so a branch can be recorded at `target` or pruned after exceeding `target`.
+- Restrict choices to the current `start_index` and later positions to avoid generating different orderings of the same combination.
+- Recurse with the chosen index, rather than the next index, to allow the chosen number to be reused.
+- If `d = target // min(nums)` and `k` combinations are returned, the worst-case time is O(nᵈ × d), auxiliary space is O(d), and output space is O(k × d).
