@@ -54,6 +54,7 @@ The following rules apply to every problem and solution in this repository:
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
 | [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
+| [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
 
 ## Learning notes
 
@@ -333,3 +334,10 @@ The following rules apply to every problem and solution in this repository:
 - Following is not transitive, and a set prevents duplicate follow relationships.
 - Collect and sort all `v` visible tweets, then return the first 10 IDs in newest-first order.
 - With `p` stored tweets and `f` follow relationships, storage is O(p + f); building a feed temporarily uses O(v) more space.
+
+### Find Median From Data Stream
+
+- Keep the smaller half of the stream in a max-heap and the larger half in a min-heap.
+- Negate values in the smaller heap because Python's `heapq` implements a min-heap.
+- Rebalance after every insertion so the smaller heap has either the same size as the larger heap or one extra value.
+- For an odd count, the smaller heap's maximum is the median; for an even count, average both heap tops.
