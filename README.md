@@ -62,6 +62,7 @@ The following rules apply to every problem and solution in this repository:
 | [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
 | [Generate Parentheses](solutions/generate_parentheses.py) | Backtracking | Solved | Insert pairs with explored-state pruning | O(n² × Cₙ) | O(n × Cₙ) |
 | [Word Search](solutions/word_search.py) | Backtracking | Solved | Backtracking with prefix and visited-cell pruning | O(rows × columns × L × 4ᴸ) | O(L²) |
+| [Palindrome Partitioning](solutions/palindrome_partitioning.py) | Backtracking | Solved | Backtracking with memoized palindrome checks | O(n × 2ⁿ) | O(n² + n × 2ⁿ) |
 | [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
 
 ## Learning notes
@@ -412,6 +413,15 @@ The following rules apply to every problem and solution in this repository:
 - Add each chosen position to a visited set so one path cannot reuse a cell, then remove it while backtracking.
 - If `L` is the word length, the search takes O(rows × columns × L × 4ᴸ) time because extending immutable strings costs up to O(L).
 - The visited set and recursion stack use O(L) space; simultaneous immutable string states use O(L²) space.
+
+### Palindrome Partitioning
+
+- Track a start index so the current partition always covers one continuous prefix of the input.
+- Try every right boundary for the next substring and recurse only when that substring is a palindrome.
+- Continue after a failed palindrome check because adding another character may produce a palindrome.
+- Memoize checks by inclusive `(left, right)` boundaries so each substring range is evaluated once.
+- Copy the current partition only after its substrings cover the complete input, then remove the last choice while backtracking.
+- In the worst case, returning exponentially many partitions takes O(n × 2ⁿ) time and output space; the palindrome cache uses O(n²) auxiliary space.
 
 ### Letter Combinations of a Phone Number
 
