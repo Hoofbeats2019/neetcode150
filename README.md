@@ -55,6 +55,7 @@ The following rules apply to every problem and solution in this repository:
 | [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
+| [Subsets](solutions/subsets.py) | Backtracking | Solved | Include/exclude choice loop | O(n × 2ⁿ) | O(n × 2ⁿ) |
 
 ## Learning notes
 
@@ -341,3 +342,13 @@ The following rules apply to every problem and solution in this repository:
 - Negate values in the smaller heap because Python's `heapq` implements a min-heap.
 - Rebalance after every insertion so the smaller heap has either the same size as the larger heap or one extra value.
 - For an odd count, the smaller heap's maximum is the median; for an even count, average both heap tops.
+
+### Subsets
+
+- At each index, a `for` loop tries the two choices: include the current number or exclude it.
+- A subset becomes complete and valid after every input number has received a choice.
+- Only complete subsets are copied into the result at the base case.
+- After exploring an inclusion, remove that number to undo the choice before trying exclusion.
+- Exclusion changes nothing in the current subset, so there is nothing to undo for that choice.
+- There are `2ⁿ` subsets, and copying subsets makes the total time and returned-output space O(n × 2ⁿ).
+- The current subset and recursion stack use O(n) auxiliary space when the returned output is excluded.
