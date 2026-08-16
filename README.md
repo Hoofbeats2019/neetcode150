@@ -61,6 +61,7 @@ The following rules apply to every problem and solution in this repository:
 | [Combination Sum II](solutions/combination_sum_ii.py) | Backtracking | Solved | Sorted pop-based backtracking with same-level duplicate skipping | O(n × 2ⁿ) | O(n² + k × n) |
 | [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
 | [Generate Parentheses](solutions/generate_parentheses.py) | Backtracking | Solved | Insert pairs with explored-state pruning | O(n² × Cₙ) | O(n × Cₙ) |
+| [Word Search](solutions/word_search.py) | Backtracking | Solved | Backtracking with prefix and visited-cell pruning | O(rows × columns × L × 4ᴸ) | O(L²) |
 
 ## Learning notes
 
@@ -401,3 +402,12 @@ The following rules apply to every problem and solution in this repository:
 - Different insertion positions or branches can create the same string, so an explored set prunes duplicate states before recursion.
 - A state containing `n` pairs is complete and can be added directly to the result.
 - If `Cₙ` is the nth Catalan number, creating and checking insertion candidates takes O(n² × Cₙ) time, while stored states use O(n × Cₙ) space.
+
+### Word Search
+
+- Try every board position because any cell may begin the word.
+- Track the current row and column so each branch can explore the four horizontal and vertical neighbors.
+- Prune a branch when its chosen letter does not match `word[len(current_state)]`.
+- Add each chosen position to a visited set so one path cannot reuse a cell, then remove it while backtracking.
+- If `L` is the word length, the search takes O(rows × columns × L × 4ᴸ) time because extending immutable strings costs up to O(L).
+- The visited set and recursion stack use O(L) space; simultaneous immutable string states use O(L²) space.
