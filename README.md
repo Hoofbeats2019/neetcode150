@@ -56,7 +56,15 @@ The following rules apply to every problem and solution in this repository:
 | [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
-| [Subsets](solutions/subsets.py) | Backtracking | In Progress | TBD | TBD | TBD |
+| [Subsets](solutions/subsets.py) | Backtracking | Solved | Include/exclude choice loop | O(n × 2ⁿ) | O(n × 2ⁿ) |
+| [Subsets II](solutions/subsets_ii.py) | Backtracking | Solved | Sorted backtracking with a per-level processed dictionary | O(n × 2ⁿ) | O(n × 2ⁿ) |
+| [Combination Sum](solutions/combination_sum.py) | Backtracking | Solved | Backtracking with sum pruning and a start index | O(nᵈ × d) | O(d + k × d) |
+| [Combination Sum II](solutions/combination_sum_ii.py) | Backtracking | Solved | Sorted pop-based backtracking with same-level duplicate skipping | O(n × 2ⁿ) | O(n² + k × n) |
+| [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
+| [Generate Parentheses](solutions/generate_parentheses.py) | Backtracking | Solved | Insert pairs with explored-state pruning | O(n² × Cₙ) | O(n × Cₙ) |
+| [Word Search](solutions/word_search.py) | Backtracking | Solved | Backtracking with prefix and visited-cell pruning | O(rows × columns × L × 4ᴸ) | O(L²) |
+| [Palindrome Partitioning](solutions/palindrome_partitioning.py) | Backtracking | Solved | Backtracking with memoized palindrome checks | O(n × 2ⁿ) | O(n² + n × 2ⁿ) |
+| [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
 
 ## Learning notes
 
@@ -353,4 +361,81 @@ The following rules apply to every problem and solution in this repository:
 
 ### Subsets
 
-- The implementation approach and complexity will be recorded after the pseudocode is provided.
+- At each index, a `for` loop tries the two choices: include the current number or exclude it.
+- A subset becomes complete and valid after every input number has received a choice.
+- Only complete subsets are copied into the result at the base case.
+- After exploring an inclusion, remove that number to undo the choice before trying exclusion.
+- Exclusion changes nothing in the current subset, so there is nothing to undo for that choice.
+- There are `2ⁿ` subsets, and copying subsets makes the total time and returned-output space O(n × 2ⁿ).
+- The current subset and recursion stack use O(n) auxiliary space when the returned output is excluded.
+
+### Subsets II
+
+- Every partial subset is valid, so copy it into the result at the start of each recursive call.
+- Sort a copy of the input so every generated subset has one consistent value order without changing the caller's list.
+- Create a new processed-values dictionary for each recursion level and skip a value already explored by a sibling branch.
+- A fresh dictionary in deeper calls still allows repeated values within a subset, such as `[7, 7]`.
+- Recurse from the index after the chosen occurrence so each array element can be selected at most once.
+- Producing and copying all subsets takes O(n × 2ⁿ) time and output space; the current subset, recursion stack, sorted copy, and live dictionaries use O(n) auxiliary space.
+
+### Combination Sum
+
+- A value from `nums` may appear multiple times in one combination.
+- Combination order and value order do not affect uniqueness; only the frequency of each chosen value matters.
+- Track the current sum so a branch can be recorded at `target` or pruned after exceeding `target`.
+- Restrict choices to the current `start_index` and later positions to avoid generating different orderings of the same combination.
+- Recurse with the chosen index, rather than the next index, to allow the chosen number to be reused.
+- If `d = target // min(nums)` and `k` combinations are returned, the worst-case time is O(nᵈ × d), auxiliary space is O(d), and output space is O(k × d).
+
+### Combination Sum II
+
+- Sort a copy of the candidates so duplicate values are adjacent without modifying the caller's input.
+- Give each recursive branch its own remaining-candidates list so popping a value does not affect sibling branches.
+- Passing only the candidates left after a pop ensures each candidate occurrence can be chosen at most once.
+- Skip a value when it equals the previous choice at the same recursion level, preventing duplicate combinations.
+- Remove the chosen value from the current state after recursion so the next branch starts from the correct state.
+- Copying candidate lists throughout an exponential search takes O(n × 2ⁿ) time and O(n²) auxiliary stack space; `k` results use up to O(k × n) output space.
+
+### Permutations
+
+- Each recursion level chooses the number that will occupy the next position in the current permutation.
+- Give every branch its own remaining-numbers list, then remove the chosen number so it cannot be reused in that permutation.
+- Copy a complete current state into the result because the state list is mutable and will be changed during backtracking.
+- Remove the last choice after recursion so the next branch starts from the correct state.
+- No pruning is needed because every partial permutation can be completed with the remaining unique numbers.
+- Returning all `n!` permutations requires O(n × n!) time and output space; copied remaining lists use O(n²) auxiliary space along one recursion path.
+
+### Generate Parentheses
+
+- Begin with the empty string and insert a complete `()` pair at every possible position.
+- Inserting a well-formed pair into a well-formed string preserves well-formedness, so every explored state remains valid.
+- Different insertion positions or branches can create the same string, so an explored set prunes duplicate states before recursion.
+- A state containing `n` pairs is complete and can be added directly to the result.
+- If `Cₙ` is the nth Catalan number, creating and checking insertion candidates takes O(n² × Cₙ) time, while stored states use O(n × Cₙ) space.
+
+### Word Search
+
+- Try every board position because any cell may begin the word.
+- Track the current row and column so each branch can explore the four horizontal and vertical neighbors.
+- Prune a branch when its chosen letter does not match `word[len(current_state)]`.
+- Add each chosen position to a visited set so one path cannot reuse a cell, then remove it while backtracking.
+- If `L` is the word length, the search takes O(rows × columns × L × 4ᴸ) time because extending immutable strings costs up to O(L).
+- The visited set and recursion stack use O(L) space; simultaneous immutable string states use O(L²) space.
+
+### Palindrome Partitioning
+
+- Track a start index so the current partition always covers one continuous prefix of the input.
+- Try every right boundary for the next substring and recurse only when that substring is a palindrome.
+- Continue after a failed palindrome check because adding another character may produce a palindrome.
+- Memoize checks by inclusive `(left, right)` boundaries so each substring range is evaluated once.
+- Copy the current partition only after its substrings cover the complete input, then remove the last choice while backtracking.
+- In the worst case, returning exponentially many partitions takes O(n × 2ⁿ) time and output space; the palindrome cache uses O(n²) auxiliary space.
+
+### Letter Combinations of a Phone Number
+
+- Each input digit contributes one character from its telephone-keypad mapping.
+- Track the digit index so each recursion level chooses one letter for the next position.
+- Add a complete combination after one letter has been chosen for every digit.
+- Remove the last chosen letter after recursion so the next branch can reuse the current state.
+- An empty input returns an empty list.
+- In the worst case, there are 4ⁿ strings of length `n`, requiring O(n × 4ⁿ) time and output space; the recursion uses O(n) auxiliary space.
