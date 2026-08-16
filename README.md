@@ -52,9 +52,11 @@ The following rules apply to every problem and solution in this repository:
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
+| [Kth Largest Element in an Array](solutions/kth_largest_element_in_an_array.py) | Heap / Priority Queue | Solved | Size-k min-heap | O(n log k) | O(k) |
 | [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
 | [Design Twitter](solutions/design_twitter.py) | Heap / Priority Queue | Solved | Collect and sort visible tweets by timestamp | O(v log v) per feed; O(1) average updates | O(p + f + v) |
 | [Find Median From Data Stream](solutions/find_median_from_data_stream.py) | Heap / Priority Queue | Solved | Balanced max-heap and min-heap | O(log n) per addition; O(1) lookup | O(n) |
+| [Subsets](solutions/subsets.py) | Backtracking | In Progress | TBD | TBD | TBD |
 
 ## Learning notes
 
@@ -318,6 +320,13 @@ The following rules apply to every problem and solution in this repository:
 - Keep at most k points in the heap by removing the farthest point whenever its size exceeds k.
 - After every point has been processed, the heap contains the k closest points in any order.
 
+### Kth Largest Element in an Array
+
+- Keep only the k largest values encountered so far in a min-heap.
+- When the heap grows beyond size k, remove its smallest value.
+- Duplicate values count as separate positions in the sorted order.
+- After traversal, the heap's smallest value is the kth largest overall.
+
 ### Task Scheduler
 
 - Among tasks that are ready, prefer the task with the largest remaining count.
@@ -341,3 +350,7 @@ The following rules apply to every problem and solution in this repository:
 - Negate values in the smaller heap because Python's `heapq` implements a min-heap.
 - Rebalance after every insertion so the smaller heap has either the same size as the larger heap or one extra value.
 - For an odd count, the smaller heap's maximum is the median; for an even count, average both heap tops.
+
+### Subsets
+
+- The implementation approach and complexity will be recorded after the pseudocode is provided.
