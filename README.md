@@ -62,6 +62,7 @@ The following rules apply to every problem and solution in this repository:
 | [Permutations](solutions/permutations.py) | Backtracking | Solved | Backtracking with a copied remaining-numbers list | O(n × n!) | O(n² + n × n!) |
 | [Generate Parentheses](solutions/generate_parentheses.py) | Backtracking | Solved | Insert pairs with explored-state pruning | O(n² × Cₙ) | O(n × Cₙ) |
 | [Word Search](solutions/word_search.py) | Backtracking | Solved | Backtracking with prefix and visited-cell pruning | O(rows × columns × L × 4ᴸ) | O(L²) |
+| [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
 
 ## Learning notes
 
@@ -411,3 +412,12 @@ The following rules apply to every problem and solution in this repository:
 - Add each chosen position to a visited set so one path cannot reuse a cell, then remove it while backtracking.
 - If `L` is the word length, the search takes O(rows × columns × L × 4ᴸ) time because extending immutable strings costs up to O(L).
 - The visited set and recursion stack use O(L) space; simultaneous immutable string states use O(L²) space.
+
+### Letter Combinations of a Phone Number
+
+- Each input digit contributes one character from its telephone-keypad mapping.
+- Track the digit index so each recursion level chooses one letter for the next position.
+- Add a complete combination after one letter has been chosen for every digit.
+- Remove the last chosen letter after recursion so the next branch can reuse the current state.
+- An empty input returns an empty list.
+- In the worst case, there are 4ⁿ strings of length `n`, requiring O(n × 4ⁿ) time and output space; the recursion uses O(n) auxiliary space.
