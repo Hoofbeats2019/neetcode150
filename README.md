@@ -52,6 +52,7 @@ The following rules apply to every problem and solution in this repository:
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
+| [Task Scheduler](solutions/task_scheduler.py) | Heap / Priority Queue | Solved | Greedy max-heap with cooldown tracking | O(T + m log k) | O(k) |
 
 ## Learning notes
 
@@ -314,3 +315,11 @@ The following rules apply to every problem and solution in this repository:
 - Store negative distances to simulate a max-heap using Python's min-heap operations.
 - Keep at most k points in the heap by removing the farthest point whenever its size exceeds k.
 - After every point has been processed, the heap contains the k closest points in any order.
+
+### Task Scheduler
+
+- Among tasks that are ready, prefer the task with the largest remaining count.
+- A cooldown queue records when a previously run task becomes available again.
+- A task run at time `t` can next run at time `t + n + 1`.
+- A cycle is idle only when every unfinished task is cooling down.
+- With `m` tasks, `k` task types, and `T` total cycles, simulation takes O(T + m log k) time and O(k) space.
