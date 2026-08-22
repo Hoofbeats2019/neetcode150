@@ -65,6 +65,7 @@ The following rules apply to every problem and solution in this repository:
 | [Word Search](solutions/word_search.py) | Backtracking | Solved | Backtracking with prefix and visited-cell pruning | O(rows × columns × L × 4ᴸ) | O(L²) |
 | [Palindrome Partitioning](solutions/palindrome_partitioning.py) | Backtracking | Solved | Backtracking with memoized palindrome checks | O(n × 2ⁿ) | O(n² + n × 2ⁿ) |
 | [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
+| [N-Queens](solutions/n_queens.py) | Backtracking | Solved | Row-by-row DFS with column and diagonal pruning | O(n! + S × n²) | O(n² + S × n²) |
 
 ## Learning notes
 
@@ -439,3 +440,13 @@ The following rules apply to every problem and solution in this repository:
 - Remove the last chosen letter after recursion so the next branch can reuse the current state.
 - An empty input returns an empty list.
 - In the worst case, there are 4ⁿ strings of length `n`, requiring O(n × 4ⁿ) time and output space; the recursion uses O(n) auxiliary space.
+
+### N-Queens
+
+- Treat the board as a layered search graph where each layer is one row and each node is a possible queen position.
+- Moving to the next layer places exactly one queen per row, so horizontal conflicts are prevented automatically.
+- Track occupied columns, `row + column` diagonals, and `row - column` diagonals in sets for constant-time conflict checks.
+- Prune a branch immediately when a new queen conflicts with a previously placed queen.
+- Reaching row `n` completes a valid path; convert the mutable board to strings and add that layout to the result.
+- Undo every placement and its occupied markers before exploring another column.
+- The search takes O(n! + S × n²) time, where `S` is the number of solutions; the board uses O(n²) auxiliary space and the returned layouts use O(S × n²) space.
