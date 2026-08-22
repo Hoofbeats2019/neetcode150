@@ -69,6 +69,7 @@ The following rules apply to every problem and solution in this repository:
 | [Palindrome Partitioning](solutions/palindrome_partitioning.py) | Backtracking | Solved | Backtracking with memoized palindrome checks | O(n × 2ⁿ) | O(n² + n × 2ⁿ) |
 | [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
 | [N-Queens](solutions/n_queens.py) | Backtracking | Solved | Row-by-row DFS with column and diagonal pruning | O(n! + S × n²) | O(n² + S × n²) |
+| [Number of Islands](solutions/number_of_islands.py) | Graphs | Solved | Connected-component traversal over unvisited land nodes | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -481,3 +482,12 @@ The following rules apply to every problem and solution in this repository:
 - Reaching row `n` completes a valid path; convert the mutable board to strings and add that layout to the result.
 - Undo every placement and its occupied markers before exploring another column.
 - The search takes O(n! + S × n²) time, where `S` is the number of solutions; the board uses O(n²) auxiliary space and the returned layouts use O(S × n²) space.
+
+### Number of Islands
+
+- Treat every land cell as a graph node, with edges to horizontal and vertical land neighbors.
+- Store all unprocessed land positions in a set; water cells are excluded from the graph.
+- Starting from any unvisited land node, an iterative depth-first traversal removes its entire connected component from the set.
+- Increment the island count once before traversing each new component, rather than at traversal dead ends.
+- Continue until the unvisited-land set is empty; each completed traversal represents exactly one island.
+- Building and traversing the land-node set takes O(rows × columns) time and O(rows × columns) space.
