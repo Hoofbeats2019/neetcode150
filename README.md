@@ -76,6 +76,7 @@ The following rules apply to every problem and solution in this repository:
 | [Rotting Fruit](solutions/rotting_fruit.py) | Graphs | Solved | Multi-source breadth-first search grouped by minute | O(rows × columns) | O(rows × columns) |
 | [Pacific Atlantic Water Flow](solutions/pacific_atlantic_water_flow.py) | Graphs | Solved | Reverse depth-first search from both oceans | O(rows × columns) | O(rows × columns) |
 | [Surrounded Regions](solutions/surrounded_regions.py) | Graphs | Solved | Iterative DFS by connected O component with edge detection | O(rows × columns) | O(rows × columns) |
+| [Course Schedule](solutions/course_schedule.py) | Graphs | Solved | Recursive DFS with three visitation states | O(V + E) | O(V + E) |
 
 ## Learning notes
 
@@ -556,3 +557,13 @@ The following rules apply to every problem and solution in this repository:
 - Use iterative DFS to collect each connected `"O"` component and record whether any cell touches an edge.
 - After a component has been fully explored, change its cells only when its edge flag is false.
 - The board scan and DFS take O(rows × columns) time; the visited set, stack, and component list use O(rows × columns) space.
+
+### Course Schedule
+
+- Courses are labeled from `0` through `numCourses - 1`.
+- A prerequisite pair `[a, b]` means course `b` must be completed before course `a`.
+- Build a directed adjacency list with an edge from each prerequisite to the course that depends on it.
+- Mark a course as visiting while it is on the current DFS path and visited only after all courses reachable from it are safely processed.
+- Reaching a visiting course proves there is a cycle, while reaching a visited course is safe because its paths were already checked.
+- Start DFS from every unvisited course so disconnected graph components are also checked.
+- Building and traversing the graph takes O(V + E) time; the adjacency list, states, and recursion stack use O(V + E) space.
