@@ -73,6 +73,7 @@ The following rules apply to every problem and solution in this repository:
 | [Max Area of Island](solutions/max_area_of_island.py) | Graphs | Solved | Connected-component traversal tracking the largest island | O(rows × columns) | O(rows × columns) |
 | [Clone Graph](solutions/clone_graph.py) | Graphs | Solved | Breadth-first traversal with an original-to-copy node map | O(V + E) | O(V) |
 | [Islands and Treasure](solutions/islands_and_treasure.py) | Graphs | Solved | Multi-source breadth-first search from every treasure | O(m × n) | O(m × n) |
+| [Rotting Fruit](solutions/rotting_fruit.py) | Graphs | Solved | Multi-source breadth-first search grouped by minute | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -523,3 +524,13 @@ The following rules apply to every problem and solution in this repository:
 - Add every treasure to the queue before starting so breadth-first search expands from all sources simultaneously.
 - Assign a distance only when an `INF` cell is first reached; BFS guarantees that this is its shortest distance.
 - Every cell is processed at most once, giving O(m × n) time and O(m × n) queue space.
+
+### Rotting Fruit
+
+- Empty cells do not contain fruit and do not spread rot.
+- Fresh fruit changes only when it is horizontally or vertically adjacent to rotten fruit.
+- Return the elapsed minutes when no fresh fruit remains, or `-1` if some fresh fruit cannot rot.
+- Add every initially rotten fruit to the queue so breadth-first search starts from all sources simultaneously.
+- Process one queue layer per minute and place newly rotten fruit in the next minute's queue.
+- Increment the timer only when at least one fresh fruit becomes rotten.
+- Every cell is scanned or processed a constant number of times, giving O(rows × columns) time and queue space.
