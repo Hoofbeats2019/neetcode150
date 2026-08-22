@@ -49,6 +49,7 @@ The following rules apply to every problem and solution in this repository:
 | [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
+| [Implement Trie (Prefix Tree)](solutions/implement_trie_prefix_tree.py) | Tries | Solved | Character-to-child maps with end-of-word markers | O(L) per operation | O(total inserted characters) |
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
@@ -306,6 +307,14 @@ The following rules apply to every problem and solution in this repository:
 - `join` combines the recorded values into one string, and `split` restores the value tokens.
 - During deserialization, a shared index advances once per value or null marker.
 - Each node is processed once, so serialization and deserialization both take O(n) time.
+
+### Implement Trie (Prefix Tree)
+
+- Each node maps characters to child nodes, allowing words with the same prefix to share a path.
+- Insertion creates only the missing nodes while following a word from the root.
+- An end-of-word marker distinguishes a complete inserted word from a path that is only a prefix.
+- `search` requires both a complete path and an end marker, while `startsWith` requires only the path.
+- Processing a word or prefix of length `L` takes O(L) time.
 
 ### Kth Largest Element in a Stream
 
