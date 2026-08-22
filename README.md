@@ -51,6 +51,7 @@ The following rules apply to every problem and solution in this repository:
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
 | [Implement Trie (Prefix Tree)](solutions/implement_trie_prefix_tree.py) | Tries | Solved | Character-to-child maps with end-of-word markers | O(L) per operation | O(total inserted characters) |
 | [Design Add and Search Word Data Structure](solutions/design_add_and_search_word_data_structure.py) | Tries | Solved | Trie insertion with recursive wildcard search | O(L) add; O(26ᵈ × L) search | O(C + L) |
+| [Word Search II](solutions/word_search_ii.py) | Tries | Solved | Trie-guided board backtracking with prefix pruning | O(S + rows × columns × 4ᴸ) | O(S + L) |
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
@@ -327,6 +328,15 @@ The following rules apply to every problem and solution in this repository:
 - Reaching the end of the query succeeds only at an end-of-word marker.
 - In the worst case, a search with `d` dots takes O(26ᵈ × L) time and uses
   O(L) recursive stack space.
+
+### Word Search II
+
+- Store all candidate words in a trie so words with common prefixes share the same path.
+- Start backtracking from every board cell and move only horizontally or vertically.
+- Track visited positions so one search path cannot reuse a board cell.
+- Follow the trie node that matches the current cell and prune the branch immediately when no matching child exists.
+- Store complete words at terminal trie nodes and clear each one after finding it so multiple board paths cannot add duplicate results.
+- If `S` is the total number of word characters and `L` is the longest word length, the worst-case time is O(S + rows × columns × 4ᴸ), while the trie and active search use O(S + L) auxiliary space.
 
 ### Kth Largest Element in a Stream
 
