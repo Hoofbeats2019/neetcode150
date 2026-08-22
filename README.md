@@ -70,6 +70,7 @@ The following rules apply to every problem and solution in this repository:
 | [Letter Combinations of a Phone Number](solutions/letter_combinations_of_a_phone_number.py) | Backtracking | Solved | Digit-to-letters map with backtracking | O(n × 4ⁿ) | O(n × 4ⁿ) |
 | [N-Queens](solutions/n_queens.py) | Backtracking | Solved | Row-by-row DFS with column and diagonal pruning | O(n! + S × n²) | O(n² + S × n²) |
 | [Number of Islands](solutions/number_of_islands.py) | Graphs | Solved | Connected-component traversal over unvisited land nodes | O(rows × columns) | O(rows × columns) |
+| [Max Area of Island](solutions/max_area_of_island.py) | Graphs | Solved | Connected-component traversal tracking the largest island | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -490,4 +491,14 @@ The following rules apply to every problem and solution in this repository:
 - Starting from any unvisited land node, an iterative depth-first traversal removes its entire connected component from the set.
 - Increment the island count once before traversing each new component, rather than at traversal dead ends.
 - Continue until the unvisited-land set is empty; each completed traversal represents exactly one island.
+- Building and traversing the land-node set takes O(rows × columns) time and O(rows × columns) space.
+
+### Max Area of Island
+
+- Reuse the connected-component traversal from Number of Islands.
+- Treat every land cell as a graph node, with edges to horizontal and vertical land neighbors.
+- Store all unprocessed land positions in a set; water cells are excluded from the graph.
+- Starting from any unvisited land node, an iterative depth-first traversal removes its entire connected component from the set.
+- Instead of counting components, count the land cells visited in the current component.
+- Record the maximum component area after each traversal finishes.
 - Building and traversing the land-node set takes O(rows × columns) time and O(rows × columns) space.
