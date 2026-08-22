@@ -72,6 +72,7 @@ The following rules apply to every problem and solution in this repository:
 | [Number of Islands](solutions/number_of_islands.py) | Graphs | Solved | Connected-component traversal over unvisited land nodes | O(rows × columns) | O(rows × columns) |
 | [Max Area of Island](solutions/max_area_of_island.py) | Graphs | Solved | Connected-component traversal tracking the largest island | O(rows × columns) | O(rows × columns) |
 | [Clone Graph](solutions/clone_graph.py) | Graphs | Solved | Breadth-first traversal with an original-to-copy node map | O(V + E) | O(V) |
+| [Islands and Treasure](solutions/islands_and_treasure.py) | Graphs | Solved | Multi-source breadth-first search from every treasure | O(m × n) | O(m × n) |
 
 ## Learning notes
 
@@ -513,3 +514,12 @@ The following rules apply to every problem and solution in this repository:
 - Add an original node to the BFS queue only when its copy is first created.
 - While processing each original edge, append the copied neighbor to the current copied node's neighbor list.
 - Visiting each node and edge takes O(V + E) time; the map and queue use O(V) auxiliary space.
+
+### Islands and Treasure
+
+- Water cells cannot be traversed, and movement is limited to horizontal and vertical neighbors.
+- Each land cell must store its distance to the nearest treasure chest.
+- Land that cannot reach a treasure chest remains unchanged.
+- Add every treasure to the queue before starting so breadth-first search expands from all sources simultaneously.
+- Assign a distance only when an `INF` cell is first reached; BFS guarantees that this is its shortest distance.
+- Every cell is processed at most once, giving O(m × n) time and O(m × n) queue space.
