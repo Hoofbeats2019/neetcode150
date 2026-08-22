@@ -50,6 +50,7 @@ The following rules apply to every problem and solution in this repository:
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
 | [Implement Trie (Prefix Tree)](solutions/implement_trie_prefix_tree.py) | Tries | Solved | Character-to-child maps with end-of-word markers | O(L) per operation | O(total inserted characters) |
+| [Design Add and Search Word Data Structure](solutions/design_add_and_search_word_data_structure.py) | Tries | Solved | Trie insertion with recursive wildcard search | O(L) add; O(26ᵈ × L) search | O(C + L) |
 | [Kth Largest Element in a Stream](solutions/kth_largest_element_in_a_stream.py) | Heap / Priority Queue | Solved | Sort the stream in descending order after each addition | O(n log n) per addition | O(n) |
 | [Last Stone Weight](solutions/last_stone_weight.py) | Heap / Priority Queue | Solved | Ascending sorted list with ordered reinsertion | O(n²) | O(1) |
 | [K Closest Points to Origin](solutions/k_closest_points_to_origin.py) | Heap / Priority Queue | Solved | Size-k max-heap using negative squared distances | O(n log k) | O(k) |
@@ -315,6 +316,17 @@ The following rules apply to every problem and solution in this repository:
 - An end-of-word marker distinguishes a complete inserted word from a path that is only a prefix.
 - `search` requires both a complete path and an end marker, while `startsWith` requires only the path.
 - Processing a word or prefix of length `L` takes O(L) time.
+
+### Design Add and Search Word Data Structure
+
+- Words with common prefixes share trie nodes, while end markers distinguish
+  complete words from prefixes.
+- A normal search letter follows one child path.
+- A dot recursively tries every child path until one produces a complete
+  match.
+- Reaching the end of the query succeeds only at an end-of-word marker.
+- In the worst case, a search with `d` dots takes O(26ᵈ × L) time and uses
+  O(L) recursive stack space.
 
 ### Kth Largest Element in a Stream
 
