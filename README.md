@@ -74,6 +74,7 @@ The following rules apply to every problem and solution in this repository:
 | [Clone Graph](solutions/clone_graph.py) | Graphs | Solved | Breadth-first traversal with an original-to-copy node map | O(V + E) | O(V) |
 | [Islands and Treasure](solutions/islands_and_treasure.py) | Graphs | Solved | Multi-source breadth-first search from every treasure | O(m × n) | O(m × n) |
 | [Rotting Fruit](solutions/rotting_fruit.py) | Graphs | Solved | Multi-source breadth-first search grouped by minute | O(rows × columns) | O(rows × columns) |
+| [Pacific Atlantic Water Flow](solutions/pacific_atlantic_water_flow.py) | Graphs | Solved | Reverse depth-first search from both oceans | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -534,3 +535,13 @@ The following rules apply to every problem and solution in this repository:
 - Process one queue layer per minute and place newly rotten fruit in the next minute's queue.
 - Increment the timer only when at least one fresh fruit becomes rotten.
 - Every cell is scanned or processed a constant number of times, giving O(rows × columns) time and queue space.
+
+### Pacific Atlantic Water Flow
+
+- Treat every island cell as a graph node with edges to its horizontal and vertical neighbors.
+- Start one multi-source depth-first search from the top and left Pacific borders.
+- Start another multi-source depth-first search from the bottom and right Atlantic borders.
+- Reverse the water-flow direction by moving from each ocean toward neighboring cells of equal or greater height.
+- Keep a visited set for each ocean so every cell is processed at most once by that search.
+- Cells in the intersection of the two visited sets can send water to both oceans.
+- The two searches take O(rows × columns) time and O(rows × columns) auxiliary space.
