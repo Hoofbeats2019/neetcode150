@@ -75,6 +75,7 @@ The following rules apply to every problem and solution in this repository:
 | [Islands and Treasure](solutions/islands_and_treasure.py) | Graphs | Solved | Multi-source breadth-first search from every treasure | O(m × n) | O(m × n) |
 | [Rotting Fruit](solutions/rotting_fruit.py) | Graphs | Solved | Multi-source breadth-first search grouped by minute | O(rows × columns) | O(rows × columns) |
 | [Pacific Atlantic Water Flow](solutions/pacific_atlantic_water_flow.py) | Graphs | Solved | Reverse depth-first search from both oceans | O(rows × columns) | O(rows × columns) |
+| [Surrounded Regions](solutions/surrounded_regions.py) | Graphs | Solved | Iterative DFS by connected O component with edge detection | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -545,3 +546,13 @@ The following rules apply to every problem and solution in this repository:
 - Keep a visited set for each ocean so every cell is processed at most once by that search.
 - Cells in the intersection of the two visited sets can send water to both oceans.
 - The two searches take O(rows × columns) time and O(rows × columns) auxiliary space.
+
+### Surrounded Regions
+
+- Only horizontal and vertical neighbors belong to the same region.
+- A region is captured only when none of its `"O"` cells touch an edge of the board.
+- Every `"O"` in a captured region must be changed to `"X"` in place.
+- Edge-connected `"O"` regions must remain unchanged.
+- Use iterative DFS to collect each connected `"O"` component and record whether any cell touches an edge.
+- After a component has been fully explored, change its cells only when its edge flag is false.
+- The board scan and DFS take O(rows × columns) time; the visited set, stack, and component list use O(rows × columns) space.
