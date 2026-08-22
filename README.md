@@ -71,6 +71,7 @@ The following rules apply to every problem and solution in this repository:
 | [N-Queens](solutions/n_queens.py) | Backtracking | Solved | Row-by-row DFS with column and diagonal pruning | O(n! + S × n²) | O(n² + S × n²) |
 | [Number of Islands](solutions/number_of_islands.py) | Graphs | Solved | Connected-component traversal over unvisited land nodes | O(rows × columns) | O(rows × columns) |
 | [Max Area of Island](solutions/max_area_of_island.py) | Graphs | Solved | Connected-component traversal tracking the largest island | O(rows × columns) | O(rows × columns) |
+| [Clone Graph](solutions/clone_graph.py) | Graphs | Solved | Breadth-first traversal with an original-to-copy node map | O(V + E) | O(V) |
 
 ## Learning notes
 
@@ -502,3 +503,13 @@ The following rules apply to every problem and solution in this repository:
 - Instead of counting components, count the land cells visited in the current component.
 - Record the maximum component area after each traversal finishes.
 - Building and traversing the land-node set takes O(rows × columns) time and O(rows × columns) space.
+
+### Clone Graph
+
+- A deep copy must preserve every node value and neighbor relationship.
+- Every node in the returned graph must be a new object; no copied neighbor may point to an original node.
+- The empty graph is represented by `None`, while `[[]]` represents one node with no neighbors.
+- Map each original node object to exactly one copied node so cycles and shared neighbors do not create duplicate copies.
+- Add an original node to the BFS queue only when its copy is first created.
+- While processing each original edge, append the copied neighbor to the current copied node's neighbor list.
+- Visiting each node and edge takes O(V + E) time; the map and queue use O(V) auxiliary space.
