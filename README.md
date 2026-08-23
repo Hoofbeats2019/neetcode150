@@ -88,6 +88,7 @@ The following rules apply to every problem and solution in this repository:
 | [Min Cost to Connect Points](solutions/min_cost_to_connect_points.py) | Graphs | Solved | Kruskal's algorithm with Union-Find | O(n² log n) | O(n²) |
 | [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
 | [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
+| [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 
 ## Learning notes
 
@@ -692,3 +693,14 @@ The following rules apply to every problem and solution in this repository:
 - Reaching a letter on the current path identifies a cycle and means no alien alphabet can satisfy the relationships.
 - Append each letter after its outgoing neighbors and reverse the postorder to produce a valid topological ordering.
 - Reading the input and traversing the graph takes O(C + V + E) time; the graph, states, result, and recursion stack use O(V + E) space.
+
+### Climbing Stairs
+
+- Each move climbs either one or two steps.
+- Ways with a different sequence of moves count as distinct.
+- Every path ending in one step extends a valid path to `n - 1`.
+- Every path ending in two steps extends a valid path to `n - 2`.
+- These groups have different final moves, so their counts can be added.
+- Memoization stores each smaller result so it is calculated only once.
+- The base cases are one way for `n = 1` and two ways for `n = 2`.
+- Calculating and caching each value through `n` takes O(n) time and O(n) space, including the recursion stack.
