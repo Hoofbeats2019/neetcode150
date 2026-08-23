@@ -85,6 +85,7 @@ The following rules apply to every problem and solution in this repository:
 | [Network Delay Time](solutions/network_delay_time.py) | Graphs | Solved | Adjacency matrix with Dijkstra's algorithm | O(n² + E) | O(n²) |
 | [Reconstruct Flight Path](solutions/reconstruct_flight_path.py) | Graphs | Solved | Hierholzer's algorithm with destination min-heaps | O(E log E) | O(E) |
 | [Min Cost to Connect Points](solutions/min_cost_to_connect_points.py) | Graphs | Solved | Kruskal's algorithm with Union-Find | O(n² log n) | O(n²) |
+| [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
 
 ## Learning notes
 
@@ -660,3 +661,13 @@ The following rules apply to every problem and solution in this repository:
 - Union-Find uses path compression and union by rank to merge groups and detect cycle-forming edges efficiently.
 - Stop after selecting `n - 1` edges because a spanning tree on `n` points has exactly that many edges.
 - Creating O(n²) edges and sorting them takes O(n² log n) time; storing the edges takes O(n²) space.
+
+### Swim in Rising Water
+
+- Treat each grid cell as a graph node connected to its horizontal and vertical neighbors.
+- A path becomes usable when the water reaches the highest elevation encountered on that path.
+- Moving to a neighbor therefore changes the required time to the maximum of the current path time and the neighbor's elevation.
+- Dijkstra's algorithm uses a min-heap to process the cell with the smallest known required time.
+- Keep the smallest known time for each cell and ignore stale heap entries after a better route is found.
+- The first removal of the bottom-right cell from the heap gives the minimum possible time.
+- Processing O(n²) cells and their heap operations takes O(n² log n) time; the heap and best-time matrix use O(n²) space.
