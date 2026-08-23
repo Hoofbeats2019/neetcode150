@@ -79,6 +79,7 @@ The following rules apply to every problem and solution in this repository:
 | [Course Schedule](solutions/course_schedule.py) | Graphs | Solved | Recursive DFS with three visitation states | O(V + E) | O(V + E) |
 | [Course Schedule II](solutions/course_schedule_ii.py) | Graphs | Solved | DFS postorder with three visitation states | O(V + E) | O(V + E) |
 | [Graph Valid Tree](solutions/graph_valid_tree.py) | Graphs | Solved | Recursive DFS with parent tracking and connectivity check | O(V + E) | O(V + E) |
+| [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
 
 ## Learning notes
 
@@ -588,3 +589,13 @@ The following rules apply to every problem and solution in this repository:
 - Reaching any other visited node identifies a cycle.
 - After DFS, every node must be visited; otherwise, the graph has multiple connected components.
 - Building and traversing the graph takes O(V + E) time and O(V + E) space.
+
+### Number of Connected Components in an Undirected Graph
+
+- Nodes are labeled from `0` through `n - 1`.
+- Each edge connects two nodes in both directions because the graph is undirected.
+- Nodes connected by a path belong to the same component.
+- A node without any edges forms a component by itself.
+- Mark each node as processed when DFS first visits it so cycles do not repeat work.
+- Start a new DFS from every remaining unprocessed node and increment the component count once for each new search.
+- The adjacency matrix and scanning every possible neighbor take O(n²) time and O(n²) space.
