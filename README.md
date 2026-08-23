@@ -84,6 +84,7 @@ The following rules apply to every problem and solution in this repository:
 | [Word Ladder](solutions/word_ladder.py) | Graphs | Solved | Adjacency matrix with breadth-first search | O(n² × L) | O(n²) |
 | [Network Delay Time](solutions/network_delay_time.py) | Graphs | Solved | Adjacency matrix with Dijkstra's algorithm | O(n² + E) | O(n²) |
 | [Reconstruct Flight Path](solutions/reconstruct_flight_path.py) | Graphs | Solved | Hierholzer's algorithm with destination min-heaps | O(E log E) | O(E) |
+| [Min Cost to Connect Points](solutions/min_cost_to_connect_points.py) | Graphs | Solved | Kruskal's algorithm with Union-Find | O(n² log n) | O(n²) |
 
 ## Learning notes
 
@@ -647,3 +648,15 @@ The following rules apply to every problem and solution in this repository:
 - Hierholzer's algorithm consumes each ticket while moving forward and appends airports while backtracking.
 - Reverse the postorder route so early dead ends appear in their valid final positions.
 - Heap insertion and removal take O(E log E) total time; the graph, recursion stack, and route use O(E) space.
+
+### Min Cost to Connect Points
+
+- Each point is a distinct coordinate pair on a 2D plane.
+- The cost of a direct connection is the Manhattan distance between its two points.
+- The result must connect every point with exactly one simple path between each pair.
+- A single point requires no connections and therefore has a total cost of zero.
+- Create the complete graph by calculating an edge for every pair of points, then sort those edges by cost.
+- Kruskal's algorithm accepts an edge only when its endpoints belong to different selected-edge groups.
+- Union-Find uses path compression and union by rank to merge groups and detect cycle-forming edges efficiently.
+- Stop after selecting `n - 1` edges because a spanning tree on `n` points has exactly that many edges.
+- Creating O(n²) edges and sorting them takes O(n² log n) time; storing the edges takes O(n²) space.
