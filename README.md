@@ -81,6 +81,7 @@ The following rules apply to every problem and solution in this repository:
 | [Graph Valid Tree](solutions/graph_valid_tree.py) | Graphs | Solved | Recursive DFS with parent tracking and connectivity check | O(V + E) | O(V + E) |
 | [Redundant Connection](solutions/redundant_connection.py) | Graphs | Solved | Adjacency matrix DFS with path-based cycle reconstruction | O(n²) | O(n²) |
 | [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
+| [Word Ladder](solutions/word_ladder.py) | Graphs | Solved | Adjacency matrix with breadth-first search | O(n² × L) | O(n²) |
 
 ## Learning notes
 
@@ -610,3 +611,15 @@ The following rules apply to every problem and solution in this repository:
 - Mark each node as processed when DFS first visits it so cycles do not repeat work.
 - Start a new DFS from every remaining unprocessed node and increment the component count once for each new search.
 - The adjacency matrix and scanning every possible neighbor take O(n²) time and O(n²) space.
+
+### Word Ladder
+
+- Every word has the same length and contains only lowercase English letters.
+- Each transformation must produce a word from `wordList` that differs at exactly one character position.
+- The returned length counts every word in the sequence, including `beginWord` and `endWord`.
+- Return `0` when no valid sequence reaches `endWord`.
+- Treat each distinct word as a graph node and connect two nodes when their words differ at exactly one position.
+- Include `beginWord` as the source node even when it does not appear in `wordList`.
+- Because every edge represents one transformation, breadth-first search finds the minimum number of transformations without Dijkstra's priority queue.
+- Add one to the shortest edge distance to count the words in the transformation sequence.
+- Comparing every pair of length-L words takes O(n² × L) time; the adjacency matrix uses O(n²) space.
