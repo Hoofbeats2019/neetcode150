@@ -89,6 +89,7 @@ The following rules apply to every problem and solution in this repository:
 | [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
 | [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
 | [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
+| [Min Cost Climbing Stairs](solutions/min_cost_climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 
 ## Learning notes
 
@@ -704,3 +705,14 @@ The following rules apply to every problem and solution in this repository:
 - Memoization stores each smaller result so it is calculated only once.
 - The base cases are one way for `n = 1` and two ways for `n = 2`.
 - Calculating and caching each value through `n` takes O(n) time and O(n) space, including the recursion stack.
+
+### Min Cost Climbing Stairs
+
+- Each indexed step has a cost that is paid when that step is used.
+- A move climbs either one or two steps.
+- The climb may begin at step 0 or step 1.
+- The top is the position immediately beyond the final indexed step.
+- To reach floor `n`, the final move comes from floor `n - 1` or floor `n - 2`.
+- Add the cost of the departure step to the minimum cost of reaching that step.
+- Floors 0 and 1 both have an initial cost of zero because the climb may start at either one.
+- Memoization calculates each floor once, producing O(n) time and O(n) space.

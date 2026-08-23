@@ -1,0 +1,40 @@
+"""Unit tests for Min Cost Climbing Stairs."""
+
+import sys
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from solutions.min_cost_climbing_stairs import Solution
+
+
+class TestMinCostClimbingStairs(unittest.TestCase):
+    def setUp(self) -> None:
+        self.solution = Solution()
+
+    def test_first_worked_example(self) -> None:
+        self.assertEqual(
+            self.solution.minCostClimbingStairs([1, 2, 3]),
+            2,
+        )
+
+    def test_second_worked_example(self) -> None:
+        cost = [1, 2, 1, 2, 1, 1, 1]
+        self.assertEqual(self.solution.minCostClimbingStairs(cost), 4)
+
+    def test_two_steps(self) -> None:
+        self.assertEqual(self.solution.minCostClimbingStairs([5, 2]), 2)
+
+    def test_zero_cost_steps(self) -> None:
+        self.assertEqual(self.solution.minCostClimbingStairs([0, 0, 0]), 0)
+
+    def test_one_step_path_can_be_cheapest(self) -> None:
+        self.assertEqual(
+            self.solution.minCostClimbingStairs([1, 100, 1, 1]),
+            2,
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
