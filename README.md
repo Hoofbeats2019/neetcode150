@@ -82,6 +82,7 @@ The following rules apply to every problem and solution in this repository:
 | [Redundant Connection](solutions/redundant_connection.py) | Graphs | Solved | Adjacency matrix DFS with path-based cycle reconstruction | O(n²) | O(n²) |
 | [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
 | [Word Ladder](solutions/word_ladder.py) | Graphs | Solved | Adjacency matrix with breadth-first search | O(n² × L) | O(n²) |
+| [Network Delay Time](solutions/network_delay_time.py) | Graphs | Solved | Adjacency matrix with Dijkstra's algorithm | O(n² + E) | O(n²) |
 
 ## Learning notes
 
@@ -623,3 +624,14 @@ The following rules apply to every problem and solution in this repository:
 - Because every edge represents one transformation, breadth-first search finds the minimum number of transformations without Dijkstra's priority queue.
 - Add one to the shortest edge distance to count the words in the transformation sequence.
 - Comparing every pair of length-L words takes O(n² × L) time; the adjacency matrix uses O(n²) space.
+
+### Network Delay Time
+
+- Nodes are labeled from `1` through `n`, and every edge has a direction and a nonnegative travel time.
+- The signal begins at node `k` at time zero.
+- The result is the earliest time by which every node has received the signal.
+- Return `-1` when any node is unreachable from the source.
+- Store directed travel times in an adjacency matrix, using infinity to distinguish missing edges from zero-weight edges.
+- Dijkstra's algorithm repeatedly selects the unvisited node with the smallest known distance and relaxes its outgoing edges.
+- Return the maximum shortest-path distance because that is when the final reachable node receives the signal.
+- Scanning the matrix takes O(n² + E) time, and the matrix uses O(n²) space.
