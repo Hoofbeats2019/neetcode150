@@ -83,6 +83,7 @@ The following rules apply to every problem and solution in this repository:
 | [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
 | [Word Ladder](solutions/word_ladder.py) | Graphs | Solved | Adjacency matrix with breadth-first search | O(n² × L) | O(n²) |
 | [Network Delay Time](solutions/network_delay_time.py) | Graphs | Solved | Adjacency matrix with Dijkstra's algorithm | O(n² + E) | O(n²) |
+| [Reconstruct Flight Path](solutions/reconstruct_flight_path.py) | Graphs | Solved | Hierholzer's algorithm with destination min-heaps | O(E log E) | O(E) |
 
 ## Learning notes
 
@@ -635,3 +636,14 @@ The following rules apply to every problem and solution in this repository:
 - Dijkstra's algorithm repeatedly selects the unvisited node with the smallest known distance and relaxes its outgoing edges.
 - Return the maximum shortest-path distance because that is when the final reachable node receives the signal.
 - Scanning the matrix takes O(n² + E) time, and the matrix uses O(n²) space.
+
+### Reconstruct Flight Path
+
+- The itinerary starts at `"JFK"` and contains one more airport than the number of tickets.
+- Every supplied ticket must be used exactly once, including duplicate tickets.
+- When several complete flight paths are valid, return the lexicographically smallest itinerary.
+- The problem guarantees that at least one valid flight path exists.
+- Store each airport's destinations in a min-heap so the smallest available destination is removed first.
+- Hierholzer's algorithm consumes each ticket while moving forward and appends airports while backtracking.
+- Reverse the postorder route so early dead ends appear in their valid final positions.
+- Heap insertion and removal take O(E log E) total time; the graph, recursion stack, and route use O(E) space.
