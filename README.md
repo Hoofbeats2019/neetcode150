@@ -90,6 +90,7 @@ The following rules apply to every problem and solution in this repository:
 | [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
 | [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Min Cost Climbing Stairs](solutions/min_cost_climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
+| [House Robber](solutions/house_robber.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 
 ## Learning notes
 
@@ -716,3 +717,12 @@ The following rules apply to every problem and solution in this repository:
 - Add the cost of the departure step to the minimum cost of reaching that step.
 - Floors 0 and 1 both have an initial cost of zero because the climb may start at either one.
 - Memoization calculates each floor once, producing O(n) time and O(n) space.
+
+### House Robber
+
+- At each house, either skip it or rob it and skip the adjacent previous house.
+- Skipping index `n` keeps the best result through index `n - 1`.
+- Robbing index `n` adds `nums[n]` to the best result through index `n - 2`.
+- Take the larger of these two choices for every index.
+- An index below zero contributes no money, while index 0 contributes `nums[0]`.
+- Memoization calculates each index once, producing O(n) time and O(n) space.
