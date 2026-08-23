@@ -83,6 +83,7 @@ The following rules apply to every problem and solution in this repository:
 | [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
 | [Word Ladder](solutions/word_ladder.py) | Graphs | Solved | Adjacency matrix with breadth-first search | O(n² × L) | O(n²) |
 | [Network Delay Time](solutions/network_delay_time.py) | Graphs | Solved | Adjacency matrix with Dijkstra's algorithm | O(n² + E) | O(n²) |
+| [Cheapest Flights Within K Stops](solutions/cheapest_flights_within_k_stops.py) | Graphs | Solved | Layered dynamic programming over the allowed flight count | O((k + 1) × (n + E)) | O((k + 2) × n) |
 | [Reconstruct Flight Path](solutions/reconstruct_flight_path.py) | Graphs | Solved | Hierholzer's algorithm with destination min-heaps | O(E log E) | O(E) |
 | [Min Cost to Connect Points](solutions/min_cost_to_connect_points.py) | Graphs | Solved | Kruskal's algorithm with Union-Find | O(n² log n) | O(n²) |
 | [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
@@ -639,6 +640,15 @@ The following rules apply to every problem and solution in this repository:
 - Dijkstra's algorithm repeatedly selects the unvisited node with the smallest known distance and relaxes its outgoing edges.
 - Return the maximum shortest-path distance because that is when the final reachable node receives the signal.
 - Scanning the matrix takes O(n² + E) time, and the matrix uses O(n²) space.
+
+### Cheapest Flights Within K Stops
+
+- At most `k` intermediate stops means a route may use at most `k + 1` flights.
+- Row `i` of the DP table stores the cheapest cost to every airport using at most `i` flights.
+- Copy the preceding row first so routes using fewer flights remain available in every later row.
+- Relax each directed flight using only costs from the preceding row, preventing one iteration from adding multiple flights.
+- The destination needs no special update because it is processed like every other target airport and read from the final row.
+- Processing every airport copy and every flight for `k + 1` layers takes O((k + 1) × (n + E)) time, while retaining all `k + 2` rows uses O((k + 2) × n) space.
 
 ### Reconstruct Flight Path
 
