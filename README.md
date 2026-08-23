@@ -78,6 +78,7 @@ The following rules apply to every problem and solution in this repository:
 | [Surrounded Regions](solutions/surrounded_regions.py) | Graphs | Solved | Iterative DFS by connected O component with edge detection | O(rows × columns) | O(rows × columns) |
 | [Course Schedule](solutions/course_schedule.py) | Graphs | Solved | Recursive DFS with three visitation states | O(V + E) | O(V + E) |
 | [Course Schedule II](solutions/course_schedule_ii.py) | Graphs | Solved | DFS postorder with three visitation states | O(V + E) | O(V + E) |
+| [Graph Valid Tree](solutions/graph_valid_tree.py) | Graphs | Solved | Recursive DFS with parent tracking and connectivity check | O(V + E) | O(V + E) |
 
 ## Learning notes
 
@@ -578,3 +579,12 @@ The following rules apply to every problem and solution in this repository:
 - If DFS finds a cycle, no valid ordering exists, so return an empty list.
 - Start DFS from every unvisited course so disconnected courses are also included.
 - Building and traversing the graph takes O(V + E) time; the graph, state list, result, and recursion stack use O(V + E) space.
+
+### Graph Valid Tree
+
+- Nodes are labeled from `0` through `n - 1`.
+- Build an adjacency list in both directions because every edge is undirected.
+- During DFS, skip the edge leading back to the current node's parent.
+- Reaching any other visited node identifies a cycle.
+- After DFS, every node must be visited; otherwise, the graph has multiple connected components.
+- Building and traversing the graph takes O(V + E) time and O(V + E) space.
