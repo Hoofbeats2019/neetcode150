@@ -79,6 +79,7 @@ The following rules apply to every problem and solution in this repository:
 | [Course Schedule](solutions/course_schedule.py) | Graphs | Solved | Recursive DFS with three visitation states | O(V + E) | O(V + E) |
 | [Course Schedule II](solutions/course_schedule_ii.py) | Graphs | Solved | DFS postorder with three visitation states | O(V + E) | O(V + E) |
 | [Graph Valid Tree](solutions/graph_valid_tree.py) | Graphs | Solved | Recursive DFS with parent tracking and connectivity check | O(V + E) | O(V + E) |
+| [Redundant Connection](solutions/redundant_connection.py) | Graphs | Solved | Adjacency matrix DFS with path-based cycle reconstruction | O(n²) | O(n²) |
 | [Number of Connected Components in an Undirected Graph](solutions/number_of_connected_components_in_an_undirected_graph.py) | Graphs | Solved | Adjacency matrix with recursive DFS per component | O(n²) | O(n²) |
 
 ## Learning notes
@@ -589,6 +590,16 @@ The following rules apply to every problem and solution in this repository:
 - Reaching any other visited node identifies a cycle.
 - After DFS, every node must be visited; otherwise, the graph has multiple connected components.
 - Building and traversing the graph takes O(V + E) time and O(V + E) space.
+
+### Redundant Connection
+
+- The input is a tree with exactly one additional undirected edge.
+- Removing the redundant edge must leave the graph connected and without a cycle.
+- Build an undirected adjacency matrix and use DFS to find the cycle.
+- Track the current DFS path and each node's position so reaching a node still on that path identifies all cycle edges.
+- Normalize cycle edges so their endpoint order does not affect membership checks.
+- Scan the original edge list backward and return the first edge that belongs to the cycle.
+- The adjacency matrix and neighbor scans take O(n²) time and O(n²) space.
 
 ### Number of Connected Components in an Undirected Graph
 
