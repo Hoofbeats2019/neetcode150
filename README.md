@@ -86,6 +86,7 @@ The following rules apply to every problem and solution in this repository:
 | [Reconstruct Flight Path](solutions/reconstruct_flight_path.py) | Graphs | Solved | Hierholzer's algorithm with destination min-heaps | O(E log E) | O(E) |
 | [Min Cost to Connect Points](solutions/min_cost_to_connect_points.py) | Graphs | Solved | Kruskal's algorithm with Union-Find | O(n² log n) | O(n²) |
 | [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
+| [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
 
 ## Learning notes
 
@@ -671,3 +672,13 @@ The following rules apply to every problem and solution in this repository:
 - Keep the smallest known time for each cell and ignore stale heap entries after a better route is found.
 - The first removal of the bottom-right cell from the heap gives the minimum possible time.
 - Processing O(n²) cells and their heap operations takes O(n² log n) time; the heap and best-time matrix use O(n²) space.
+
+### Alien Dictionary
+
+- Include every unique letter as a graph node, even when no comparison creates an edge for it.
+- Compare neighboring words and use only their first different letters to establish the directed ordering edge.
+- A longer word appearing before its own prefix makes the supplied dictionary order invalid.
+- Use three DFS states to distinguish unvisited letters, letters on the current path, and completely processed letters.
+- Reaching a letter on the current path identifies a cycle and means no alien alphabet can satisfy the relationships.
+- Append each letter after its outgoing neighbors and reverse the postorder to produce a valid topological ordering.
+- Reading the input and traversing the graph takes O(C + V + E) time; the graph, states, result, and recursion stack use O(V + E) space.
