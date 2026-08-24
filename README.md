@@ -91,6 +91,7 @@ The following rules apply to every problem and solution in this repository:
 | [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Min Cost Climbing Stairs](solutions/min_cost_climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber](solutions/house_robber.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
+| [House Robber II](solutions/house_robber_ii.py) | 1-D Dynamic Programming | Solved | Two linear ranges with top-down memoization | O(n) | O(n) |
 
 ## Learning notes
 
@@ -726,3 +727,13 @@ The following rules apply to every problem and solution in this repository:
 - Take the larger of these two choices for every index.
 - An index below zero contributes no money, while index 0 contributes `nums[0]`.
 - Memoization calculates each index once, producing O(n) time and O(n) space.
+
+### House Robber II
+
+- The first and last houses cannot both be robbed because the houses form a circle.
+- Excluding the last house produces the linear range from index 0 through `n - 2`.
+- Excluding the first house produces the linear range from index 1 through `n - 1`.
+- Solve both ranges with the House Robber recurrence and take the larger result.
+- Memo keys include the starting boundary so results from the two ranges remain distinct.
+- The single-house input is handled separately because both reduced ranges would otherwise be empty.
+- The two linear solves take O(n) time and O(n) space in total.
