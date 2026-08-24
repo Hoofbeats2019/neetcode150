@@ -93,6 +93,7 @@ The following rules apply to every problem and solution in this repository:
 | [House Robber](solutions/house_robber.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber II](solutions/house_robber_ii.py) | 1-D Dynamic Programming | Solved | Two linear ranges with top-down memoization | O(n) | O(n) |
 | [Longest Palindromic Substring](solutions/longest_palindromic_substring.py) | 1-D Dynamic Programming | Solved | Expand around odd and even centers | O(n²) | O(1) |
+| [Palindromic Substrings](solutions/palindromic_substrings.py) | 1-D Dynamic Programming | Solved | Count expansions around odd and even centers | O(n²) | O(1) |
 
 ## Learning notes
 
@@ -745,3 +746,10 @@ The following rules apply to every problem and solution in this repository:
 - Expand outward from both center types at every index while the boundary characters match.
 - Record the boundaries whenever an expansion produces a longer palindrome.
 - Checking all centers takes O(n²) time in the worst case while storing only a constant number of indexes.
+
+### Palindromic Substrings
+
+- Every palindrome is symmetric around either one character or a gap between two characters.
+- Expand outward from both center types at every index while the boundary characters match.
+- Each successful expansion identifies one palindromic substring at a distinct pair of boundaries, so increment the counter once.
+- Checking all centers takes O(n²) time in the worst case and O(1) auxiliary space.
