@@ -94,6 +94,7 @@ The following rules apply to every problem and solution in this repository:
 | [House Robber II](solutions/house_robber_ii.py) | 1-D Dynamic Programming | Solved | Two linear ranges with top-down memoization | O(n) | O(n) |
 | [Longest Palindromic Substring](solutions/longest_palindromic_substring.py) | 1-D Dynamic Programming | Solved | Expand around odd and even centers | O(n²) | O(1) |
 | [Palindromic Substrings](solutions/palindromic_substrings.py) | 1-D Dynamic Programming | Solved | Count expansions around odd and even centers | O(n²) | O(1) |
+| [Decode Ways](solutions/decode_ways.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 
 ## Learning notes
 
@@ -753,3 +754,12 @@ The following rules apply to every problem and solution in this repository:
 - Expand outward from both center types at every index while the boundary characters match.
 - Each successful expansion identifies one palindromic substring at a distinct pair of boundaries, so increment the counter once.
 - Checking all centers takes O(n²) time in the worst case and O(1) auxiliary space.
+
+### Decode Ways
+
+- Every valid decoding ends with either one digit from `1` to `9` or two digits from `10` to `26`.
+- A valid one-digit ending extends every decoding of the preceding prefix.
+- A valid two-digit ending extends every decoding of the prefix before that pair.
+- `0` cannot be decoded alone; it is valid only as part of `10` or `20`.
+- The empty prefix contributes one completed decoding, which allows a valid pair to consume the complete string.
+- Memoization calculates each prefix length once, producing O(n) time and O(n) space.
