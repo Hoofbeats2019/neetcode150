@@ -96,6 +96,7 @@ The following rules apply to every problem and solution in this repository:
 | [Palindromic Substrings](solutions/palindromic_substrings.py) | 1-D Dynamic Programming | Solved | Count expansions around odd and even centers | O(n²) | O(1) |
 | [Decode Ways](solutions/decode_ways.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Coin Change](solutions/coin_change.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by remaining amount | O(amount × len(coins)) | O(amount) |
+| [Maximum Product Subarray](solutions/maximum_product_subarray.py) | 1-D Dynamic Programming | Solved | Track maximum and minimum products ending at each index | O(n) | O(1) |
 
 ## Learning notes
 
@@ -773,3 +774,11 @@ The following rules apply to every problem and solution in this repository:
 - Ignore `-1` results before taking the minimum so impossible branches cannot become the answer.
 - Memoize each remaining amount so its recursive subtree is solved only once.
 - With `n = len(coins)`, the memoized recursion takes O(amount × n) time and O(amount) space.
+
+### Maximum Product Subarray
+
+- At each index, track both the maximum and minimum products of subarrays ending there.
+- The current number can begin a new subarray or extend either previous ending product.
+- A negative number can turn the previous minimum product into the new maximum product.
+- Keep a separate global maximum because the best subarray may end before the final index.
+- Processing each number once takes O(n) time and O(1) extra space.
