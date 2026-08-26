@@ -95,6 +95,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Palindromic Substring](solutions/longest_palindromic_substring.py) | 1-D Dynamic Programming | Solved | Expand around odd and even centers | O(n²) | O(1) |
 | [Palindromic Substrings](solutions/palindromic_substrings.py) | 1-D Dynamic Programming | Solved | Count expansions around odd and even centers | O(n²) | O(1) |
 | [Decode Ways](solutions/decode_ways.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
+| [Coin Change](solutions/coin_change.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by remaining amount | O(amount × len(coins)) | O(amount) |
 
 ## Learning notes
 
@@ -763,3 +764,12 @@ The following rules apply to every problem and solution in this repository:
 - `0` cannot be decoded alone; it is valid only as part of `10` or `20`.
 - The empty prefix contributes one completed decoding, which allows a valid pair to consume the complete string.
 - Memoization calculates each prefix length once, producing O(n) time and O(n) space.
+
+### Coin Change
+
+- Use the remaining amount as the dynamic-programming state.
+- Reaching zero needs zero additional coins, while a negative remaining amount is impossible.
+- Try every denomination and add one coin to each possible smaller result.
+- Ignore `-1` results before taking the minimum so impossible branches cannot become the answer.
+- Memoize each remaining amount so its recursive subtree is solved only once.
+- With `n = len(coins)`, the memoized recursion takes O(amount × n) time and O(amount) space.
