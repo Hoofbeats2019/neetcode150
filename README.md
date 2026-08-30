@@ -100,6 +100,7 @@ The following rules apply to every problem and solution in this repository:
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 | [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
+| [Best Time to Buy and Sell Stock with Cooldown](solutions/best_time_to_buy_and_sell_stock_with_cooldown.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by day and holding state | O(n) | O(n) |
 | [Unique Paths](solutions/unique_paths.py) | 2-D Dynamic Programming | Solved | Top-down DFS with a memoized grid cell state | O(m × n) | O(m × n) |
 | [Longest Common Subsequence](solutions/longest_common_subsequence.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 
@@ -815,6 +816,14 @@ The following rules apply to every problem and solution in this repository:
 - Each indexed occurrence can be included or skipped once, including when values repeat.
 - A recursive state needs both the current index and the remaining target.
 - Memoizing each `(index, remaining target)` state takes O(n × target) time and space.
+
+### Best Time to Buy and Sell Stock with Cooldown
+
+- Each state contains the current day and whether a coin is currently held.
+- While holding, choose between selling today or keeping the coin for tomorrow.
+- Selling advances to `day + 2`, which represents the required cooldown day.
+- While not holding, choose between buying today and skipping it.
+- Memoizing each `(day, holding)` state gives O(n) time and space.
 
 ### Unique Paths
 
