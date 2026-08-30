@@ -101,6 +101,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 | [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
 | [Unique Paths](solutions/unique_paths.py) | 2-D Dynamic Programming | Solved | Top-down DFS with a memoized grid cell state | O(m × n) | O(m × n) |
+| [Longest Common Subsequence](solutions/longest_common_subsequence.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 
 ## Learning notes
 
@@ -822,3 +823,10 @@ The following rules apply to every problem and solution in this repository:
 - A cell's count is the sum of the valid right and down child states.
 - Multiple move sequences can reach the same cell, so memoizing by `(row, col)` avoids recomputing its subtree.
 - There are `m × n` cells, making the time and memo space O(m × n).
+
+### Longest Common Subsequence
+
+- A state `(i, j)` represents the best subsequence length using the remaining suffixes `text1[i:]` and `text2[j:]`.
+- When the current characters match, include that character and advance both indexes.
+- When they differ, advance exactly one index in each possible branch and keep the larger result.
+- Memoizing index pairs ensures every pair of positions is solved once, taking O(m × n) time and space.
