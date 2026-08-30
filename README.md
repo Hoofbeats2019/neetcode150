@@ -98,6 +98,7 @@ The following rules apply to every problem and solution in this repository:
 | [Coin Change](solutions/coin_change.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by remaining amount | O(amount × len(coins)) | O(amount) |
 | [Maximum Product Subarray](solutions/maximum_product_subarray.py) | 1-D Dynamic Programming | Solved | Track maximum and minimum products ending at each index | O(n) | O(1) |
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
+| [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 
 ## Learning notes
 
@@ -793,3 +794,13 @@ The following rules apply to every problem and solution in this repository:
 - Reusing the complete dictionary in every recursive call allows each word to be selected any number of times.
 - Memoize each starting index so its suffix is solved only once.
 - With `n = len(s)`, `m = len(wordDict)`, and maximum word length `L`, the algorithm takes O(n × m × L) time and O(n) space.
+
+### Longest Increasing Subsequence
+
+- For every possible subsequence length, keep only its smallest known ending value in `tails`.
+- A smaller ending value preserves the length while making the subsequence easier to extend later.
+- Binary search finds the first tail greater than or equal to the current number.
+- Replace that tail, or append the number when it is larger than every existing tail.
+- Searching for greater than or equal prevents duplicate values from extending a strictly increasing subsequence.
+- The `tails` list may combine ending values from different subsequences; only its length is the final answer.
+- Processing `n` numbers takes O(n log n) time and O(n) auxiliary space.
