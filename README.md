@@ -97,6 +97,7 @@ The following rules apply to every problem and solution in this repository:
 | [Decode Ways](solutions/decode_ways.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Coin Change](solutions/coin_change.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by remaining amount | O(amount × len(coins)) | O(amount) |
 | [Maximum Product Subarray](solutions/maximum_product_subarray.py) | 1-D Dynamic Programming | Solved | Track maximum and minimum products ending at each index | O(n) | O(1) |
+| [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 
 ## Learning notes
 
@@ -782,3 +783,13 @@ The following rules apply to every problem and solution in this repository:
 - A negative number can turn the previous minimum product into the new maximum product.
 - Keep a separate global maximum because the best subarray may end before the final index.
 - Processing each number once takes O(n) time and O(1) extra space.
+
+### Word Break
+
+- Use a starting index to represent the remaining suffix that still needs to be segmented.
+- Reaching the end of the string means every earlier prefix was a dictionary word, so that branch succeeds.
+- At each starting index, try every dictionary word that matches the beginning of the remaining suffix.
+- A matching word succeeds when the suffix after it can also be segmented; a failed match must not prevent trying other words.
+- Reusing the complete dictionary in every recursive call allows each word to be selected any number of times.
+- Memoize each starting index so its suffix is solved only once.
+- With `n = len(s)`, `m = len(wordDict)`, and maximum word length `L`, the algorithm takes O(n × m × L) time and O(n) space.
