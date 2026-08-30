@@ -99,6 +99,7 @@ The following rules apply to every problem and solution in this repository:
 | [Maximum Product Subarray](solutions/maximum_product_subarray.py) | 1-D Dynamic Programming | Solved | Track maximum and minimum products ending at each index | O(n) | O(1) |
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
+| [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
 
 ## Learning notes
 
@@ -804,3 +805,11 @@ The following rules apply to every problem and solution in this repository:
 - Searching for greater than or equal prevents duplicate values from extending a strictly increasing subsequence.
 - The `tails` list may combine ending values from different subsequences; only its length is the final answer.
 - Processing `n` numbers takes O(n log n) time and O(n) auxiliary space.
+
+### Partition Equal Subset Sum
+
+- Equal subset sums require the total array sum to be even.
+- For an even total, the search target is half of the total sum.
+- Each indexed occurrence can be included or skipped once, including when values repeat.
+- A recursive state needs both the current index and the remaining target.
+- Memoizing each `(index, remaining target)` state takes O(n × target) time and space.
