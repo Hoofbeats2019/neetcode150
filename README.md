@@ -100,6 +100,7 @@ The following rules apply to every problem and solution in this repository:
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 | [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
+| [Unique Paths](solutions/unique_paths.py) | 2-D Dynamic Programming | Solved | Top-down DFS with a memoized grid cell state | O(m × n) | O(m × n) |
 
 ## Learning notes
 
@@ -813,3 +814,11 @@ The following rules apply to every problem and solution in this repository:
 - Each indexed occurrence can be included or skipped once, including when values repeat.
 - A recursive state needs both the current index and the remaining target.
 - Memoizing each `(index, remaining target)` state takes O(n × target) time and space.
+
+### Unique Paths
+
+- Treat each grid cell as a state whose result is the number of paths from that cell to the destination.
+- The destination contributes one completed path.
+- A cell's count is the sum of the valid right and down child states.
+- Multiple move sequences can reach the same cell, so memoizing by `(row, col)` avoids recomputing its subtree.
+- There are `m × n` cells, making the time and memo space O(m × n).
