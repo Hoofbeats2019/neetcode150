@@ -103,6 +103,7 @@ The following rules apply to every problem and solution in this repository:
 | [Best Time to Buy and Sell Stock with Cooldown](solutions/best_time_to_buy_and_sell_stock_with_cooldown.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by day and holding state | O(n) | O(n) |
 | [Unique Paths](solutions/unique_paths.py) | 2-D Dynamic Programming | Solved | Top-down DFS with a memoized grid cell state | O(m × n) | O(m × n) |
 | [Longest Common Subsequence](solutions/longest_common_subsequence.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
+| [Coin Change II](solutions/coin_change_ii.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by coin index and remaining amount | O(n × amount) | O(n × amount) |
 
 ## Learning notes
 
@@ -839,3 +840,11 @@ The following rules apply to every problem and solution in this repository:
 - When the current characters match, include that character and advance both indexes.
 - When they differ, advance exactly one index in each possible branch and keep the larger result.
 - Memoizing index pairs ensures every pair of positions is solved once, taking O(m × n) time and space.
+
+### Coin Change II
+
+- A state `(index, remaining amount)` counts combinations using the current denomination and every later denomination.
+- Skipping a coin moves to the next index; using one stays at the same index, making that denomination unlimited.
+- Add the two branch counts because they represent disjoint groups of combinations.
+- The advancing index prevents different coin orders from being counted separately.
+- Memoizing each state takes O(n × amount) time and space.
