@@ -106,6 +106,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Common Subsequence](solutions/longest_common_subsequence.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 | [Interleaving String](solutions/interleaving_string.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 | [Coin Change II](solutions/coin_change_ii.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by coin index and remaining amount | O(n × amount) | O(n × amount) |
+| [Longest Increasing Path in Matrix](solutions/longest_increasing_path_in_matrix.py) | 2-D Dynamic Programming | Solved | Memoized DFS for the longest path starting at each cell | O(rows × columns) | O(rows × columns) |
 
 ## Learning notes
 
@@ -865,3 +866,10 @@ The following rules apply to every problem and solution in this repository:
 - Add the two branch counts because they represent disjoint groups of combinations.
 - The advancing index prevents different coin orders from being counted separately.
 - Memoizing each state takes O(n × amount) time and space.
+
+### Longest Increasing Path in Matrix
+
+- Define each cell's state as the longest strictly increasing path beginning at that cell.
+- A DFS considers only horizontal and vertical neighbors with greater values.
+- Cache each cell's result so paths that converge on the same cell do not repeat its work.
+- Every cell checks at most four neighbors, giving O(rows × columns) time and space.
