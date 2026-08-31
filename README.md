@@ -100,6 +100,7 @@ The following rules apply to every problem and solution in this repository:
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 | [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
+| [Target Sum](solutions/target_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × sum(nums)) | O(n × sum(nums)) |
 | [Best Time to Buy and Sell Stock with Cooldown](solutions/best_time_to_buy_and_sell_stock_with_cooldown.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by day and holding state | O(n) | O(n) |
 | [Unique Paths](solutions/unique_paths.py) | 2-D Dynamic Programming | Solved | Top-down DFS with a memoized grid cell state | O(m × n) | O(m × n) |
 | [Longest Common Subsequence](solutions/longest_common_subsequence.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
@@ -817,6 +818,14 @@ The following rules apply to every problem and solution in this repository:
 - Each indexed occurrence can be included or skipped once, including when values repeat.
 - A recursive state needs both the current index and the remaining target.
 - Memoizing each `(index, remaining target)` state takes O(n × target) time and space.
+
+### Target Sum
+
+- A state `(index, remaining target)` counts the signed expressions formed by the remaining suffix.
+- Choosing a plus sign reduces the required remaining target; choosing a minus sign increases it.
+- Reaching the end contributes one way only when the remaining target is zero.
+- Each sign choice remains a separate branch, including `+0` and `-0`.
+- The reachable target range is bounded by the total of the input values, so memoization takes O(n × sum(nums)) time and space.
 
 ### Best Time to Buy and Sell Stock with Cooldown
 
