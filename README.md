@@ -97,6 +97,7 @@ The following rules apply to every problem and solution in this repository:
 | [Decode Ways](solutions/decode_ways.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Coin Change](solutions/coin_change.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by remaining amount | O(amount × len(coins)) | O(amount) |
 | [Maximum Product Subarray](solutions/maximum_product_subarray.py) | 1-D Dynamic Programming | Solved | Track maximum and minimum products ending at each index | O(n) | O(1) |
+| [Maximum Subarray](solutions/maximum_subarray.py) | 1-D Dynamic Programming | Solved | Track the best subarray sum ending at each index | O(n) | O(1) |
 | [Word Break](solutions/word_break.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by starting index | O(n × m × L) | O(n) |
 | [Longest Increasing Subsequence](solutions/longest_increasing_subsequence.py) | 1-D Dynamic Programming | Solved | Minimum subsequence tails with binary search | O(n log n) | O(n) |
 | [Partition Equal Subset Sum](solutions/partition_equal_subset_sum.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization by index and remaining target | O(n × target) | O(n × target) |
@@ -795,6 +796,13 @@ The following rules apply to every problem and solution in this repository:
 - The current number can begin a new subarray or extend either previous ending product.
 - A negative number can turn the previous minimum product into the new maximum product.
 - Keep a separate global maximum because the best subarray may end before the final index.
+- Processing each number once takes O(n) time and O(1) extra space.
+
+### Maximum Subarray
+
+- At each number, choose whether to start a new subarray or extend the best one ending just before it.
+- Track the best sum ending at the current position and a separate overall best sum.
+- Initializing both values from the first number correctly handles arrays containing only negative values.
 - Processing each number once takes O(n) time and O(1) extra space.
 
 ### Word Break
