@@ -110,6 +110,7 @@ The following rules apply to every problem and solution in this repository:
 | [Distinct Subsequences](solutions/distinct_subsequences.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by source and target indexes | O(m × n) | O(m × n) |
 | [Edit Distance](solutions/edit_distance.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 | [Burst Balloons](solutions/burst_balloons.py) | 2-D Dynamic Programming | Solved | Memoized interval DP choosing the final balloon burst | O(n³) | O(n²) |
+| [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
 
 ## Learning notes
 
@@ -899,3 +900,10 @@ The following rules apply to every problem and solution in this repository:
 - Choose each interior balloon as the final burst in its interval; by then, its neighbors are exactly the two boundaries.
 - The final-burst choice separates the remaining balloons into independent left and right intervals.
 - There are O(n²) intervals and O(n) possible final balloons per interval, giving O(n³) time and O(n²) memo space.
+
+### Regular Expression Matching
+
+- A state `(i, j)` represents whether `s[i:]` matches `p[j:]`.
+- A direct character match or `.` consumes one character from both strings.
+- For `x*`, try skipping the pair first, or consume one matching string character while keeping `x*` available.
+- Memoizing each string-pattern index pair avoids repeating overlapping decision-tree branches.
