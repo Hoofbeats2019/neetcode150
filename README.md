@@ -109,6 +109,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Increasing Path in Matrix](solutions/longest_increasing_path_in_matrix.py) | 2-D Dynamic Programming | Solved | Memoized DFS for the longest path starting at each cell | O(rows × columns) | O(rows × columns) |
 | [Distinct Subsequences](solutions/distinct_subsequences.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by source and target indexes | O(m × n) | O(m × n) |
 | [Edit Distance](solutions/edit_distance.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
+| [Burst Balloons](solutions/burst_balloons.py) | 2-D Dynamic Programming | Solved | Memoized interval DP choosing the final balloon burst | O(n³) | O(n²) |
 
 ## Learning notes
 
@@ -890,3 +891,11 @@ The following rules apply to every problem and solution in this repository:
 - Otherwise, insertion advances only the second index, deletion advances only the first, and replacement advances both.
 - When either string ends, every remaining character in the other string requires one insertion or deletion.
 - Memoizing `(i, j)` solves each suffix pair once, taking O(m × n) time and space.
+
+### Burst Balloons
+
+- Add virtual balloons with value `1` at both ends so every burst has two neighbors.
+- A state `(left, right)` represents the maximum coins obtainable from balloons strictly between those fixed boundaries.
+- Choose each interior balloon as the final burst in its interval; by then, its neighbors are exactly the two boundaries.
+- The final-burst choice separates the remaining balloons into independent left and right intervals.
+- There are O(n²) intervals and O(n) possible final balloons per interval, giving O(n³) time and O(n²) memo space.
