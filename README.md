@@ -108,6 +108,7 @@ The following rules apply to every problem and solution in this repository:
 | [Coin Change II](solutions/coin_change_ii.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by coin index and remaining amount | O(n × amount) | O(n × amount) |
 | [Longest Increasing Path in Matrix](solutions/longest_increasing_path_in_matrix.py) | 2-D Dynamic Programming | Solved | Memoized DFS for the longest path starting at each cell | O(rows × columns) | O(rows × columns) |
 | [Distinct Subsequences](solutions/distinct_subsequences.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by source and target indexes | O(m × n) | O(m × n) |
+| [Edit Distance](solutions/edit_distance.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 
 ## Learning notes
 
@@ -881,3 +882,11 @@ The following rules apply to every problem and solution in this repository:
 - Skipping `s[i]` is always an option; when it matches `t[j]`, using it is a second, independent option.
 - Reaching the end of `t` contributes one completed subsequence, while reaching the end of `s` first contributes none.
 - Memoizing each index pair solves every state at most once, using O(m × n) time and space.
+
+### Edit Distance
+
+- A state `(i, j)` represents the minimum edits needed to transform `word1[i:]` into `word2[j:]`.
+- Equal current characters require no edit, so both indexes advance together.
+- Otherwise, insertion advances only the second index, deletion advances only the first, and replacement advances both.
+- When either string ends, every remaining character in the other string requires one insertion or deletion.
+- Memoizing `(i, j)` solves each suffix pair once, taking O(m × n) time and space.
