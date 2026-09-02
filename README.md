@@ -90,6 +90,7 @@ The following rules apply to every problem and solution in this repository:
 | [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
 | [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [Jump Game](solutions/jump_game.py) | 1-D Dynamic Programming | Solved | DFS decision tree with memoized reachability by index | O(n²) | O(n) |
+| [Jump Game II](solutions/jump_game_ii.py) | 1-D Dynamic Programming | Solved | Top-down DFS with memoized minimum jumps by index | O(n²) | O(n) |
 | [Min Cost Climbing Stairs](solutions/min_cost_climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber](solutions/house_robber.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber II](solutions/house_robber_ii.py) | 1-D Dynamic Programming | Solved | Two linear ranges with top-down memoization | O(n) | O(n) |
@@ -735,6 +736,14 @@ The following rules apply to every problem and solution in this repository:
 - A successful jump makes the current index reachable; if every allowed jump fails, it is unreachable.
 - Memoizing each index's Boolean result avoids searching the same decision subtree again.
 - Jump lengths start at one, because a zero-length jump would revisit the same state indefinitely.
+
+### Jump Game II
+
+- Define each subproblem by its current index: the minimum jumps needed from that index to the final index.
+- The last index needs zero additional jumps.
+- Consider every valid next index and add one jump to its cached minimum.
+- Memoizing each index prevents recomputing the same possible jump sequences.
+- In the worst case, each index considers up to O(n) jumps, resulting in O(n²) time and O(n) space.
 
 ### Min Cost Climbing Stairs
 
