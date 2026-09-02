@@ -116,6 +116,7 @@ The following rules apply to every problem and solution in this repository:
 | [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
+| [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
 
 ## Learning notes
 
@@ -736,6 +737,13 @@ The following rules apply to every problem and solution in this repository:
 - A frequency map tracks how many copies of each required consecutive value remain.
 - Skip cards whose frequency is already zero because an earlier group consumed them.
 - Sorting takes O(n log n) time; the frequency map requires O(n) space.
+
+### Merge Triplets to Form Target
+
+- A triplet exceeding the target in any coordinate is unsafe because a maximum operation cannot reduce it later.
+- Safe triplets can contribute an exact target coordinate without exceeding another target coordinate.
+- The target is reachable when safe triplets collectively supply all three exact target coordinates.
+- A single scan uses O(n) time and O(1) extra space.
 
 ### Climbing Stairs
 
