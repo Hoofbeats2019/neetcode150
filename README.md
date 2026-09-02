@@ -89,6 +89,7 @@ The following rules apply to every problem and solution in this repository:
 | [Swim in Rising Water](solutions/swim_in_rising_water.py) | Graphs | Solved | Dijkstra's algorithm with minimax path costs | O(n² log n) | O(n²) |
 | [Alien Dictionary](solutions/alien_dictionary.py) | Graphs | Solved | DFS topological sort with three visitation states | O(C + V + E) | O(V + E) |
 | [Climbing Stairs](solutions/climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
+| [Jump Game](solutions/jump_game.py) | 1-D Dynamic Programming | Solved | DFS decision tree with memoized reachability by index | O(n²) | O(n) |
 | [Min Cost Climbing Stairs](solutions/min_cost_climbing_stairs.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber](solutions/house_robber.py) | 1-D Dynamic Programming | Solved | Top-down recursion with memoization | O(n) | O(n) |
 | [House Robber II](solutions/house_robber_ii.py) | 1-D Dynamic Programming | Solved | Two linear ranges with top-down memoization | O(n) | O(n) |
@@ -727,6 +728,13 @@ The following rules apply to every problem and solution in this repository:
 - Memoization stores each smaller result so it is calculated only once.
 - The base cases are one way for `n = 1` and two ways for `n = 2`.
 - Calculating and caching each value through `n` takes O(n) time and O(n) space, including the recursion stack.
+
+### Jump Game
+
+- Define each subproblem by its current index: whether that index can reach the final index.
+- A successful jump makes the current index reachable; if every allowed jump fails, it is unreachable.
+- Memoizing each index's Boolean result avoids searching the same decision subtree again.
+- Jump lengths start at one, because a zero-length jump would revisit the same state indefinitely.
 
 ### Min Cost Climbing Stairs
 
