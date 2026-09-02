@@ -115,6 +115,7 @@ The following rules apply to every problem and solution in this repository:
 | [Burst Balloons](solutions/burst_balloons.py) | 2-D Dynamic Programming | Solved | Memoized interval DP choosing the final balloon burst | O(n³) | O(n²) |
 | [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
+| [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 
 ## Learning notes
 
@@ -727,6 +728,14 @@ The following rules apply to every problem and solution in this repository:
 - Track the fuel balance from the current candidate start as the route is scanned.
 - When this balance becomes negative at an index, every station in that failed segment is invalid as a start; begin again at the next station.
 - A single scan finds the remaining candidate in O(n) time with O(1) extra space.
+
+### Hand of Straights
+
+- A hand whose size is not divisible by `groupSize` cannot be split into complete groups.
+- Sort the cards so every remaining smallest card must begin its own group.
+- A frequency map tracks how many copies of each required consecutive value remain.
+- Skip cards whose frequency is already zero because an earlier group consumed them.
+- Sorting takes O(n log n) time; the frequency map requires O(n) space.
 
 ### Climbing Stairs
 
