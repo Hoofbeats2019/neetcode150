@@ -114,6 +114,7 @@ The following rules apply to every problem and solution in this repository:
 | [Edit Distance](solutions/edit_distance.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 | [Burst Balloons](solutions/burst_balloons.py) | 2-D Dynamic Programming | Solved | Memoized interval DP choosing the final balloon burst | O(n³) | O(n²) |
 | [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
+| [Insert Interval](solutions/insert_interval.py) | Intervals | Solved | Copy preceding intervals, merge overlaps, then append the remainder | O(n) | O(n) |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
@@ -121,6 +122,12 @@ The following rules apply to every problem and solution in this repository:
 | [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
 
 ## Learning notes
+
+### Insert Interval
+
+- Intervals ending strictly before the new interval begins can be copied unchanged.
+- An interval overlaps or touches the new interval when its start is no later than the current merged end.
+- Expand the new interval's boundaries while merging, then append the untouched suffix.
 
 ### Largest Rectangle in Histogram
 
