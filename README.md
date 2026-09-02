@@ -118,6 +118,7 @@ The following rules apply to every problem and solution in this repository:
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
 | [Partition Labels](solutions/partition_labels.py) | Greedy | Solved | Track the furthest final occurrence in the current partition | O(n) | O(1) |
+| [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
 
 ## Learning notes
 
@@ -966,3 +967,10 @@ The following rules apply to every problem and solution in this repository:
 - A direct character match or `.` consumes one character from both strings.
 - For `x*`, try skipping the pair first, or consume one matching string character while keeping `x*` available.
 - Memoizing each string-pattern index pair avoids repeating overlapping decision-tree branches.
+
+### Valid Parenthesis String
+
+- Track the smallest and largest possible numbers of unmatched opening parentheses after each character.
+- A `*` can decrease the minimum by acting as `)`, leave the count unchanged, or increase the maximum by acting as `(`.
+- If the maximum becomes negative, no possible interpretation can match the current closing parenthesis.
+- Clamp the minimum to zero and finish successfully only when it can be zero.
