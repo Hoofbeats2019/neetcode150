@@ -117,6 +117,7 @@ The following rules apply to every problem and solution in this repository:
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
+| [Partition Labels](solutions/partition_labels.py) | Greedy | Solved | Track the furthest final occurrence in the current partition | O(n) | O(1) |
 
 ## Learning notes
 
@@ -744,6 +745,13 @@ The following rules apply to every problem and solution in this repository:
 - Safe triplets can contribute an exact target coordinate without exceeding another target coordinate.
 - The target is reachable when safe triplets collectively supply all three exact target coordinates.
 - A single scan uses O(n) time and O(1) extra space.
+
+### Partition Labels
+
+- Record the final index of every character before choosing partition boundaries.
+- As a partition is scanned, keep its boundary at the furthest final index of any character it contains.
+- When the current index reaches that boundary, no character in the partition can appear later, so the partition can close.
+- Each character is examined a constant number of times, giving O(n) time and O(1) extra space for the fixed lowercase alphabet.
 
 ### Climbing Stairs
 
