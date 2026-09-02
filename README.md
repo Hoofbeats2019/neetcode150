@@ -112,6 +112,7 @@ The following rules apply to every problem and solution in this repository:
 | [Edit Distance](solutions/edit_distance.py) | 2-D Dynamic Programming | Solved | Top-down recursion with memoization by both string indexes | O(m × n) | O(m × n) |
 | [Burst Balloons](solutions/burst_balloons.py) | 2-D Dynamic Programming | Solved | Memoized interval DP choosing the final balloon burst | O(n³) | O(n²) |
 | [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
+| [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 
 ## Learning notes
 
@@ -716,6 +717,14 @@ The following rules apply to every problem and solution in this repository:
 - Reaching a letter on the current path identifies a cycle and means no alien alphabet can satisfy the relationships.
 - Append each letter after its outgoing neighbors and reverse the postorder to produce a valid topological ordering.
 - Reading the input and traversing the graph takes O(C + V + E) time; the graph, states, result, and recursion stack use O(V + E) space.
+
+### Gas Station
+
+- Track the total difference between fuel gained and fuel spent across all stations.
+- If that total is negative, the circuit cannot be completed from any station.
+- Track the fuel balance from the current candidate start as the route is scanned.
+- When this balance becomes negative at an index, every station in that failed segment is invalid as a start; begin again at the next station.
+- A single scan finds the remaining candidate in O(n) time with O(1) extra space.
 
 ### Climbing Stairs
 
