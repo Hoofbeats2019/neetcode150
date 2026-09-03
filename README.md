@@ -116,6 +116,7 @@ The following rules apply to every problem and solution in this repository:
 | [Regular Expression Matching](solutions/regular_expression_matching.py) | 2-D Dynamic Programming | Solved | Top-down DFS with memoization by string and pattern indexes | O(m × n) | O(m × n) |
 | [Merge Intervals](solutions/merge_intervals.py) | Intervals | Solved | Sort by start time and greedily extend overlapping intervals | O(n log n) | O(n) |
 | [Insert Interval](solutions/insert_interval.py) | Intervals | Solved | Copy preceding intervals, merge overlaps, then append the remainder | O(n) | O(n) |
+| [Non-Overlapping Intervals](solutions/non_overlapping_intervals.py) | Intervals | Solved | Sort by start time; on overlap, retain the interval with the earlier end | O(n log n) | O(1) auxiliary |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
@@ -135,6 +136,13 @@ The following rules apply to every problem and solution in this repository:
 - Intervals ending strictly before the new interval begins can be copied unchanged.
 - An interval overlaps or touches the new interval when its start is no later than the current merged end.
 - Expand the new interval's boundaries while merging, then append the untouched suffix.
+
+### Non-Overlapping Intervals
+
+- Sort by start time so each new interval can be compared with the previously kept end.
+- Intervals that touch are valid together, so a start equal to the previous end is not an overlap.
+- When two intervals overlap, retain the smaller end to preserve the greatest possible space for later intervals.
+- Each overlap requires one removal.
 
 ### Largest Rectangle in Histogram
 
