@@ -125,8 +125,16 @@ The following rules apply to every problem and solution in this repository:
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
 | [Partition Labels](solutions/partition_labels.py) | Greedy | Solved | Track the furthest final occurrence in the current partition | O(n) | O(1) |
 | [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
+| [Rotate Image](solutions/rotate_image.py) | Math & Geometry | Solved | Reverse the row order, then transpose across the main diagonal | O(n²) | O(1) |
 
 ## Learning notes
+
+### Rotate Image
+
+- Reversing the row order turns each column's future bottom-to-top order into its needed top-to-bottom order.
+- Transposing then exchanges rows and columns, completing the 90° clockwise rotation.
+- Swap only cells strictly above the main diagonal during the transpose so no pair is swapped twice.
+- Both passes visit O(n²) cells and modify the original matrix with O(1) extra space.
 
 ### Merge Intervals
 
