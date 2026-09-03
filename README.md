@@ -126,6 +126,7 @@ The following rules apply to every problem and solution in this repository:
 | [Partition Labels](solutions/partition_labels.py) | Greedy | Solved | Track the furthest final occurrence in the current partition | O(n) | O(1) |
 | [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
 | [Rotate Image](solutions/rotate_image.py) | Math & Geometry | Solved | Reverse the row order, then transpose across the main diagonal | O(n²) | O(1) |
+| [Spiral Matrix](solutions/spiral_matrix.py) | Math & Geometry | Solved | Shrink four boundaries after traversing each outer edge | O(m × n) | O(1) auxiliary |
 
 ## Learning notes
 
@@ -135,6 +136,13 @@ The following rules apply to every problem and solution in this repository:
 - Transposing then exchanges rows and columns, completing the 90° clockwise rotation.
 - Swap only cells strictly above the main diagonal during the transpose so no pair is swapped twice.
 - Both passes visit O(n²) cells and modify the original matrix with O(1) extra space.
+
+### Spiral Matrix
+
+- Track the top, bottom, left, and right boundaries of the unprocessed rectangle.
+- Traverse its top, right, bottom, and left edges clockwise, shrinking each boundary immediately after its edge is processed.
+- Before traversing the bottom or left edge, check that a row or column remains so a single remaining row or column is not processed twice.
+- Every element is appended once, so the traversal is O(m × n) with O(1) auxiliary space.
 
 ### Merge Intervals
 
