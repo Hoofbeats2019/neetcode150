@@ -118,6 +118,7 @@ The following rules apply to every problem and solution in this repository:
 | [Insert Interval](solutions/insert_interval.py) | Intervals | Solved | Copy preceding intervals, merge overlaps, then append the remainder | O(n) | O(n) |
 | [Non-Overlapping Intervals](solutions/non_overlapping_intervals.py) | Intervals | Solved | Sort by start time; on overlap, retain the interval with the earlier end | O(n log n) | O(1) auxiliary |
 | [Meeting Rooms](solutions/meeting_rooms.py) | Intervals | Solved | Sort by start time and reject a start before the previous end | O(n log n) | O(1) auxiliary |
+| [Meeting Rooms II](solutions/meeting_rooms_ii.py) | Intervals | Solved | Sort by start time and track active end times in a min-heap | O(n log n) | O(n) |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
@@ -150,6 +151,12 @@ The following rules apply to every problem and solution in this repository:
 - Sort by start time so each meeting can be compared with the one immediately before it.
 - A meeting whose start is strictly earlier than the previous end conflicts with it.
 - Meetings that touch are valid because a start equal to the previous end is not a conflict.
+
+### Meeting Rooms II
+
+- Sort by start time so each new meeting can reuse rooms that have already become free.
+- A min-heap exposes the earliest active end time; remove every end time no later than the new start.
+- The largest number of end times in the heap is the minimum number of rooms required.
 
 ### Largest Rectangle in Histogram
 
