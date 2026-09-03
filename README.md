@@ -117,6 +117,7 @@ The following rules apply to every problem and solution in this repository:
 | [Merge Intervals](solutions/merge_intervals.py) | Intervals | Solved | Sort by start time and greedily extend overlapping intervals | O(n log n) | O(n) |
 | [Insert Interval](solutions/insert_interval.py) | Intervals | Solved | Copy preceding intervals, merge overlaps, then append the remainder | O(n) | O(n) |
 | [Non-Overlapping Intervals](solutions/non_overlapping_intervals.py) | Intervals | Solved | Sort by start time; on overlap, retain the interval with the earlier end | O(n log n) | O(1) auxiliary |
+| [Meeting Rooms](solutions/meeting_rooms.py) | Intervals | Solved | Sort by start time and reject a start before the previous end | O(n log n) | O(1) auxiliary |
 | [Gas Station](solutions/gas_station.py) | Greedy | Solved | Greedy scan that discards each failed starting segment | O(n) | O(1) |
 | [Hand of Straights](solutions/hand_of_straights.py) | Greedy | Solved | Sort cards and consume each required consecutive value by frequency | O(n log n) | O(n) |
 | [Merge Triplets to Form Target](solutions/merge_triplets_to_form_target.py) | Greedy | Solved | Ignore unsafe triplets and record exact target-coordinate matches | O(n) | O(1) |
@@ -143,6 +144,12 @@ The following rules apply to every problem and solution in this repository:
 - Intervals that touch are valid together, so a start equal to the previous end is not an overlap.
 - When two intervals overlap, retain the smaller end to preserve the greatest possible space for later intervals.
 - Each overlap requires one removal.
+
+### Meeting Rooms
+
+- Sort by start time so each meeting can be compared with the one immediately before it.
+- A meeting whose start is strictly earlier than the previous end conflicts with it.
+- Meetings that touch are valid because a start equal to the previous end is not a conflict.
 
 ### Largest Rectangle in Histogram
 
