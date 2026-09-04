@@ -19,6 +19,7 @@ The following rules apply to every problem and solution in this repository:
 | --- | --- | --- | --- | --- | --- |
 | [Largest Rectangle in Histogram](solutions/largest_rectangle_in_histogram.py) | Stack | Solved | Monotonic stack with left and right boundaries | O(n) | O(n) |
 | [Contains Duplicate](solutions/contains_duplicate.py) | Arrays & Hashing | Solved | Track values in a set and return on the first repeat | O(n) | O(n) |
+| [Valid Anagram](solutions/valid_anagram.py) | Arrays & Hashing | Solved | Compare character-frequency maps | O(n + m) | O(n + m) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -142,6 +143,11 @@ The following rules apply to every problem and solution in this repository:
 - A set records each value encountered during one left-to-right scan.
 - If a value is already in the set, the list contains a duplicate and the scan can stop immediately.
 - When the scan ends without a repeated value, all values are distinct.
+
+### Valid Anagram
+
+- Two strings are anagrams exactly when every character has the same frequency in both strings.
+- A frequency map makes that comparison direct.
 
 ### Rotate Image
 
