@@ -29,6 +29,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Consecutive Sequence](solutions/longest_consecutive_sequence.py) | Arrays & Hashing | Solved | Expand only from values with no predecessor | O(n) | O(n) |
 | [Valid Palindrome](solutions/valid_palindrome.py) | Two Pointers | Solved | Skip non-alphanumeric characters from both ends | O(n) | O(1) |
 | [Two Sum II - Input Array Is Sorted](solutions/two_sum_ii_input_array_is_sorted.py) | Two Pointers | Solved | Move two pointers according to their sum | O(n) | O(1) |
+| [3Sum](solutions/three_sum.py) | Two Pointers | Solved | Sort, then fix one value and scan the remaining pair | O(n²) | O(1) auxiliary |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -202,6 +203,11 @@ The following rules apply to every problem and solution in this repository:
 
 - A sum that is too small requires a larger left value; a sum that is too large requires a smaller right value.
 - Sorted input makes those pointer moves safe and linear.
+
+### 3Sum
+
+- Sort values, then fix one value and solve a two-sum search over the remaining suffix.
+- Skip duplicate fixed values and duplicate left values after recording a triplet.
 
 ### Rotate Image
 
