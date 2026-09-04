@@ -128,6 +128,7 @@ The following rules apply to every problem and solution in this repository:
 | [Rotate Image](solutions/rotate_image.py) | Math & Geometry | Solved | Reverse the row order, then transpose across the main diagonal | O(n²) | O(1) |
 | [Spiral Matrix](solutions/spiral_matrix.py) | Math & Geometry | Solved | Shrink four boundaries after traversing each outer edge | O(m × n) | O(1) auxiliary |
 | [Set Matrix Zeroes](solutions/set_matrix_zeroes.py) | Math & Geometry | Solved | Use the first row and column as zero markers | O(m × n) | O(1) |
+| [Non-Cyclical Number](solutions/non_cyclical_number.py) | Math & Geometry | Solved | Slow and fast pointers over digit-square transformations | O(log n) | O(1) |
 
 ## Learning notes
 
@@ -144,6 +145,13 @@ The following rules apply to every problem and solution in this repository:
 - Traverse its top, right, bottom, and left edges clockwise, shrinking each boundary immediately after its edge is processed.
 - Before traversing the bottom or left edge, check that a row or column remains so a single remaining row or column is not processed twice.
 - Every element is appended once, so the traversal is O(m × n) with O(1) auxiliary space.
+
+### Non-Cyclical Number
+
+- Treat the sum of squared digits as the next value, forming either a path to `1` or a cycle.
+- Advance one value by one transformation and the other by two transformations.
+- Reaching `1` proves the number is non-cyclical; an earlier pointer meeting proves it is trapped in another cycle.
+- The algorithm stores only the two current values and a digit-sum accumulator.
 
 ### Set Matrix Zeroes
 
