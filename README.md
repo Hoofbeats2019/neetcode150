@@ -34,6 +34,7 @@ The following rules apply to every problem and solution in this repository:
 | [Trapping Rain Water](solutions/trapping_rain_water.py) | Two Pointers | Solved | Track the highest boundaries from both ends | O(n) | O(1) |
 | [Best Time to Buy and Sell Stock](solutions/best_time_to_buy_and_sell_stock.py) | Sliding Window | Solved | Track the cheapest earlier price | O(n) | O(1) |
 | [Longest Substring Without Repeating Characters](solutions/longest_substring_without_repeating_characters.py) | Sliding Window | Solved | Slide past each repeated character's last index | O(n) | O(n) |
+| [Longest Repeating Character Replacement](solutions/longest_repeating_character_replacement.py) | Sliding Window | Solved | Maintain a window needing at most k replacements | O(n) | O(1) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -232,6 +233,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Store each character's most recent index.
 - Move the window start just past a repeated character when it is still inside the window.
+
+### Longest Repeating Character Replacement
+
+- A window is valid when its length minus its most common character count is at most ``k``.
+- Shrink only invalid windows while recording the largest valid length.
 
 ### Rotate Image
 
