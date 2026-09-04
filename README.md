@@ -74,6 +74,7 @@ The following rules apply to every problem and solution in this repository:
 | [Construct Binary Tree from Preorder and Inorder Traversal](solutions/construct_binary_tree_from_preorder_and_inorder_traversal.py) | Trees | Solved | Recursive reconstruction with preorder and inorder index boundaries | O(n) | O(n) |
 | [Binary Tree Maximum Path Sum](solutions/binary_tree_maximum_path_sum.py) | Trees | Solved | Recursive DFS tracking upward gain and the best complete path | O(n) | O(h) |
 | [Serialize and Deserialize Binary Tree](solutions/serialize_and_deserialize_binary_tree.py) | Trees | Solved | Preorder DFS with explicit null markers | O(n) | O(n) |
+| [Subtree of Another Tree](solutions/subtree_of_another_tree.py) | Trees | Solved | Compare each candidate root with structural DFS | O(n × m) | O(h) |
 | [Implement Trie (Prefix Tree)](solutions/implement_trie_prefix_tree.py) | Tries | Solved | Character-to-child maps with end-of-word markers | O(L) per operation | O(total inserted characters) |
 | [Design Add and Search Word Data Structure](solutions/design_add_and_search_word_data_structure.py) | Tries | Solved | Trie insertion with recursive wildcard search | O(L) add; O(26ᵈ × L) search | O(C + L) |
 | [Word Search II](solutions/word_search_ii.py) | Tries | Solved | Trie-guided board backtracking with prefix pruning | O(S + rows × columns × 4ᴸ) | O(S + L) |
@@ -286,6 +287,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Process cars from closest to the target to farthest.
 - A farther car joins the fleet ahead when it cannot arrive sooner than that fleet.
+
+### Subtree of Another Tree
+
+- Visit every node in the main tree as a possible subtree root.
+- At each candidate, compare both value and structure recursively.
 
 ### Rotate Image
 
