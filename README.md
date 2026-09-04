@@ -163,6 +163,7 @@ The following rules apply to every problem and solution in this repository:
 | [Number of 1 Bits](solutions/number_of_1_bits.py) | Bit Manipulation | Solved | Repeatedly clear the rightmost set bit | O(k), k = number of set bits | O(1) |
 | [Reverse Bits](solutions/reverse_bits.py) | Bit Manipulation | Solved | Move each set bit at position i to position 31 - i | O(1) | O(1) |
 | [Counting Bits](solutions/counting_bits.py) | Bit Manipulation | Solved | Build counts from each number's half and final binary digit | O(n) | O(n) |
+| [Missing Number](solutions/missing_number.py) | Bit Manipulation | Solved | XOR the full range and array values so present numbers cancel | O(n) | O(1) |
 
 ## Learning notes
 
@@ -1261,3 +1262,8 @@ The following rules apply to every problem and solution in this repository:
 
 - Dividing a number by two removes its final binary digit, leaving a smaller solved subproblem.
 - The remainder after division by two is `1` for odd values and `0` for even values, so add it to the stored count.
+
+### Missing Number
+
+- XOR every value from 0 through the array length, then XOR every array value.
+- Each present number appears twice and cancels itself out, leaving the missing value.
