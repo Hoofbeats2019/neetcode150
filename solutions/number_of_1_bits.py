@@ -22,11 +22,11 @@ Constraints:
     0 <= n <= 2^31 - 1
 
 Approach:
-    Inspect the rightmost bit with ``n & 1`` and add it to a counter. Shift
-    ``n`` right by one position to inspect the next bit. Repeat until ``n``
-    becomes zero.
+    Repeatedly clear the rightmost set bit with ``n & (n - 1)``. Each
+    operation removes exactly one ``1`` bit, so count the operations until
+    ``n`` becomes zero.
 
-Time complexity: O(log n)
+Time complexity: O(k), where k is the number of 1 bits in n
 Space complexity: O(1)
 """
 
@@ -37,8 +37,8 @@ class Solution:
         count = 0
 
         while n > 0:
-            count += n & 1
-            n >>= 1
+            n &= n - 1
+            count += 1
 
         return count
 
