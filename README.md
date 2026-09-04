@@ -23,6 +23,7 @@ The following rules apply to every problem and solution in this repository:
 | [Two Sum](solutions/two_sum.py) | Arrays & Hashing | Solved | Map each value to its index and look up its complement | O(n) | O(n) |
 | [Group Anagrams](solutions/group_anagrams.py) | Arrays & Hashing | Solved | Group words by their sorted-character key | O(n × k log k) | O(n × k) |
 | [Top K Frequent Elements](solutions/top_k_frequent_elements.py) | Arrays & Hashing | Solved | Bucket values by frequency | O(n) | O(n) |
+| [Encode and Decode Strings](solutions/encode_and_decode_strings.py) | Arrays & Hashing | Solved | Prefix each string with its length | O(total characters) | O(total characters) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -166,6 +167,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Count each value, then place it in the bucket matching its frequency.
 - Reading buckets from highest frequency down produces the first ``k`` answers.
+
+### Encode and Decode Strings
+
+- Prefixing each string with its length makes every boundary unambiguous.
+- The decoder reads the length, then consumes exactly that many following characters.
 
 ### Rotate Image
 
