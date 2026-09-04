@@ -42,6 +42,7 @@ The following rules apply to every problem and solution in this repository:
 | [Min Stack](solutions/min_stack.py) | Stack | Solved | Store each value with the minimum through that position | O(1) per operation | O(n) |
 | [Evaluate Reverse Polish Notation](solutions/evaluate_reverse_polish_notation.py) | Stack | Solved | Apply each operator to the two most recent values | O(n) | O(n) |
 | [Daily Temperatures](solutions/daily_temperatures.py) | Stack | Solved | Resolve cooler days with a decreasing index stack | O(n) | O(n) |
+| [Car Fleet](solutions/car_fleet.py) | Stack | Solved | Scan cars from nearest to farthest by arrival time | O(n log n) | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -280,6 +281,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Store unresolved days in decreasing temperature order.
 - A warmer temperature resolves every cooler day on top of the stack.
+
+### Car Fleet
+
+- Process cars from closest to the target to farthest.
+- A farther car joins the fleet ahead when it cannot arrive sooner than that fleet.
 
 ### Rotate Image
 
