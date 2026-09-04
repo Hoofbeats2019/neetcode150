@@ -35,6 +35,7 @@ The following rules apply to every problem and solution in this repository:
 | [Best Time to Buy and Sell Stock](solutions/best_time_to_buy_and_sell_stock.py) | Sliding Window | Solved | Track the cheapest earlier price | O(n) | O(1) |
 | [Longest Substring Without Repeating Characters](solutions/longest_substring_without_repeating_characters.py) | Sliding Window | Solved | Slide past each repeated character's last index | O(n) | O(n) |
 | [Longest Repeating Character Replacement](solutions/longest_repeating_character_replacement.py) | Sliding Window | Solved | Maintain a window needing at most k replacements | O(n) | O(1) |
+| [Permutation in String](solutions/permutation_in_string.py) | Sliding Window | Solved | Compare fixed-size character-frequency windows | O(n) | O(1) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -238,6 +239,11 @@ The following rules apply to every problem and solution in this repository:
 
 - A window is valid when its length minus its most common character count is at most ``k``.
 - Shrink only invalid windows while recording the largest valid length.
+
+### Permutation in String
+
+- Compare the needed character frequencies with every window of the same length.
+- Slide by adding the new character and removing the character that leaves the window.
 
 ### Rotate Image
 
