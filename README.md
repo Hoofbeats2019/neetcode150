@@ -162,6 +162,7 @@ The following rules apply to every problem and solution in this repository:
 | [Detect Squares](solutions/detect_squares.py) | Math & Geometry | Solved | Scan vertical partners and multiply the three required point frequencies | O(u) per count | O(u) |
 | [Number of 1 Bits](solutions/number_of_1_bits.py) | Bit Manipulation | Solved | Mask the rightmost bit, then shift right to inspect the next bit | O(log n) | O(1) |
 | [Reverse Bits](solutions/reverse_bits.py) | Bit Manipulation | Solved | Move each set bit at position i to position 31 - i | O(1) | O(1) |
+| [Counting Bits](solutions/counting_bits.py) | Bit Manipulation | Solved | Build counts from each number's half and final binary digit | O(n) | O(n) |
 
 ## Learning notes
 
@@ -1255,3 +1256,8 @@ The following rules apply to every problem and solution in this repository:
 
 - The bit at position `i` belongs at position `31 - i` after reversal.
 - Checking all 32 positions preserves leading zeroes, which are meaningful for a 32-bit unsigned integer.
+
+### Counting Bits
+
+- Dividing a number by two removes its final binary digit, leaving a smaller solved subproblem.
+- The remainder after division by two is `1` for odd values and `0` for even values, so add it to the stored count.
