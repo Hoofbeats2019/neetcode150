@@ -37,6 +37,7 @@ The following rules apply to every problem and solution in this repository:
 | [Longest Repeating Character Replacement](solutions/longest_repeating_character_replacement.py) | Sliding Window | Solved | Maintain a window needing at most k replacements | O(n) | O(1) |
 | [Permutation in String](solutions/permutation_in_string.py) | Sliding Window | Solved | Compare fixed-size character-frequency windows | O(n) | O(1) |
 | [Minimum Window Substring](solutions/minimum_window_substring.py) | Sliding Window | Solved | Expand and shrink a frequency-counted window | O(n + m) | O(n + m) |
+| [Sliding Window Maximum](solutions/sliding_window_maximum.py) | Sliding Window | Solved | Maintain decreasing candidate indexes in a deque | O(n) | O(k) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -250,6 +251,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Expand until the window covers every required character frequency.
 - Then shrink from the left while coverage remains valid to find the smallest window.
+
+### Sliding Window Maximum
+
+- Keep candidate indexes in decreasing value order.
+- Discard expired indexes and smaller trailing candidates so the front is always the window maximum.
 
 ### Rotate Image
 
