@@ -153,6 +153,7 @@ The following rules apply to every problem and solution in this repository:
 | [Partition Labels](solutions/partition_labels.py) | Greedy | Solved | Track the furthest final occurrence in the current partition | O(n) | O(1) |
 | [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
 | [Rotate Image](solutions/rotate_image.py) | Math & Geometry | Solved | Reverse the row order, then transpose across the main diagonal | O(n²) | O(1) |
+| [Reverse Integer](solutions/reverse_integer.py) | Math & Geometry | Solved | Remove digits and check the next append against 32-bit bounds | O(d) | O(1) |
 | [Spiral Matrix](solutions/spiral_matrix.py) | Math & Geometry | Solved | Shrink four boundaries after traversing each outer edge | O(m × n) | O(1) auxiliary |
 | [Set Matrix Zeroes](solutions/set_matrix_zeroes.py) | Math & Geometry | Solved | Use the first row and column as zero markers | O(m × n) | O(1) |
 | [Non-Cyclical Number](solutions/non_cyclical_number.py) | Math & Geometry | Solved | Slow and fast pointers over digit-square transformations | O(log n) | O(1) |
@@ -309,6 +310,12 @@ The following rules apply to every problem and solution in this repository:
 - Transposing then exchanges rows and columns, completing the 90° clockwise rotation.
 - Swap only cells strictly above the main diagonal during the transpose so no pair is swapped twice.
 - Both passes visit O(n²) cells and modify the original matrix with O(1) extra space.
+
+### Reverse Integer
+
+- Remove each final decimal digit and append it to the accumulating result.
+- Check the result against the signed 32-bit boundary before multiplying it by ten and adding the next digit.
+- When the result is exactly one tenth of a boundary, compare the next digit with `7` or `-8` to reject overflow.
 
 ### Spiral Matrix
 
