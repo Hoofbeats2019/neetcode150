@@ -130,6 +130,7 @@ The following rules apply to every problem and solution in this repository:
 | [Set Matrix Zeroes](solutions/set_matrix_zeroes.py) | Math & Geometry | Solved | Use the first row and column as zero markers | O(m × n) | O(1) |
 | [Non-Cyclical Number](solutions/non_cyclical_number.py) | Math & Geometry | Solved | Slow and fast pointers over digit-square transformations | O(log n) | O(1) |
 | [Plus One](solutions/plus_one.py) | Math & Geometry | Solved | Scan right to left and propagate carry through trailing nines | O(n) | O(1) auxiliary |
+| [Pow(x, n)](solutions/pow_x_n.py) | Math & Geometry | Solved | Recursive exponentiation by squaring | O(log |n|) | O(log |n|) |
 
 ## Learning notes
 
@@ -159,6 +160,13 @@ The following rules apply to every problem and solution in this repository:
 - Start at the least significant digit because that is where incrementing begins.
 - A digit below nine absorbs the carry after increasing by one; every trailing nine becomes zero.
 - If the carry passes every digit, return a new list with a leading one.
+
+### Pow(x, n)
+
+- The base case is ``x^0 = 1``.
+- Recursively calculate the power for half the non-negative exponent, then square that result.
+- An odd exponent has one remaining factor of ``x`` after halving.
+- A negative exponent is the reciprocal of the corresponding positive power.
 
 ### Set Matrix Zeroes
 
