@@ -27,6 +27,7 @@ The following rules apply to every problem and solution in this repository:
 | [Product of Array Except Self](solutions/product_of_array_except_self.py) | Arrays & Hashing | Solved | Combine prefix and suffix products | O(n) | O(1) auxiliary |
 | [Valid Sudoku](solutions/valid_sudoku.py) | Arrays & Hashing | Solved | Track digits seen in every row, column, and box | O(1) | O(1) |
 | [Longest Consecutive Sequence](solutions/longest_consecutive_sequence.py) | Arrays & Hashing | Solved | Expand only from values with no predecessor | O(n) | O(n) |
+| [Valid Palindrome](solutions/valid_palindrome.py) | Two Pointers | Solved | Skip non-alphanumeric characters from both ends | O(n) | O(1) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -190,6 +191,11 @@ The following rules apply to every problem and solution in this repository:
 
 - A sequence start has no predecessor in the set.
 - Expanding only from starts visits every consecutive run without redundant scans.
+
+### Valid Palindrome
+
+- Move each pointer past characters that do not participate in the comparison.
+- Compare the remaining characters case-insensitively until the pointers meet.
 
 ### Rotate Image
 
