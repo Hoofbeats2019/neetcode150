@@ -131,6 +131,7 @@ The following rules apply to every problem and solution in this repository:
 | [Non-Cyclical Number](solutions/non_cyclical_number.py) | Math & Geometry | Solved | Slow and fast pointers over digit-square transformations | O(log n) | O(1) |
 | [Plus One](solutions/plus_one.py) | Math & Geometry | Solved | Scan right to left and propagate carry through trailing nines | O(n) | O(1) auxiliary |
 | [Pow(x, n)](solutions/pow_x_n.py) | Math & Geometry | Solved | Recursive exponentiation by squaring | O(log |n|) | O(log |n|) |
+| [Multiply Strings](solutions/multiply_strings.py) | Math & Geometry | Solved | Grade-school digit multiplication with a result array and carry propagation | O(m × n) | O(m + n) |
 
 ## Learning notes
 
@@ -167,6 +168,13 @@ The following rules apply to every problem and solution in this repository:
 - Recursively calculate the power for half the non-negative exponent, then square that result.
 - An odd exponent has one remaining factor of ``x`` after halving.
 - A negative exponent is the reciprocal of the corresponding positive power.
+
+### Multiply Strings
+
+- Multiply every pair of digits from right to left, mirroring grade-school multiplication.
+- Store each pair's ones digit at its right result position and carry the remaining value one position left.
+- A product of lengths `m` and `n` fits in at most `m + n` result digits.
+- The nested loops visit every digit pair once, giving O(m × n) time and O(m + n) space.
 
 ### Set Matrix Zeroes
 
