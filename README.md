@@ -18,6 +18,7 @@ The following rules apply to every problem and solution in this repository:
 | Problem | Category | Status | Approach | Time | Space |
 | --- | --- | --- | --- | --- | --- |
 | [Largest Rectangle in Histogram](solutions/largest_rectangle_in_histogram.py) | Stack | Solved | Monotonic stack with left and right boundaries | O(n) | O(n) |
+| [Contains Duplicate](solutions/contains_duplicate.py) | Arrays & Hashing | Solved | Track values in a set and return on the first repeat | O(n) | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -135,6 +136,12 @@ The following rules apply to every problem and solution in this repository:
 | [Detect Squares](solutions/detect_squares.py) | Math & Geometry | Solved | Scan vertical partners and multiply the three required point frequencies | O(u) per count | O(u) |
 
 ## Learning notes
+
+### Contains Duplicate
+
+- A set records each value encountered during one left-to-right scan.
+- If a value is already in the set, the list contains a duplicate and the scan can stop immediately.
+- When the scan ends without a repeated value, all values are distinct.
 
 ### Rotate Image
 
