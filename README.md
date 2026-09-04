@@ -127,6 +127,7 @@ The following rules apply to every problem and solution in this repository:
 | [Valid Parenthesis String](solutions/valid_parenthesis_string.py) | Greedy | Solved | Track the minimum and maximum possible unmatched opening parentheses | O(n) | O(1) |
 | [Rotate Image](solutions/rotate_image.py) | Math & Geometry | Solved | Reverse the row order, then transpose across the main diagonal | O(n²) | O(1) |
 | [Spiral Matrix](solutions/spiral_matrix.py) | Math & Geometry | Solved | Shrink four boundaries after traversing each outer edge | O(m × n) | O(1) auxiliary |
+| [Set Matrix Zeroes](solutions/set_matrix_zeroes.py) | Math & Geometry | Solved | Use the first row and column as zero markers | O(m × n) | O(1) |
 
 ## Learning notes
 
@@ -143,6 +144,13 @@ The following rules apply to every problem and solution in this repository:
 - Traverse its top, right, bottom, and left edges clockwise, shrinking each boundary immediately after its edge is processed.
 - Before traversing the bottom or left edge, check that a row or column remains so a single remaining row or column is not processed twice.
 - Every element is appended once, so the traversal is O(m × n) with O(1) auxiliary space.
+
+### Set Matrix Zeroes
+
+- The first row and first column can record which inner columns and rows need to be zeroed.
+- Preserve whether either marker line originally contained a zero before repurposing its cells as markers.
+- Mark all affected rows and columns before changing inner cells, so newly written zeroes do not create false markers.
+- Each cell is checked a constant number of times, giving O(m × n) time and O(1) extra space.
 
 ### Merge Intervals
 
