@@ -26,6 +26,7 @@ The following rules apply to every problem and solution in this repository:
 | [Encode and Decode Strings](solutions/encode_and_decode_strings.py) | Arrays & Hashing | Solved | Prefix each string with its length | O(total characters) | O(total characters) |
 | [Product of Array Except Self](solutions/product_of_array_except_self.py) | Arrays & Hashing | Solved | Combine prefix and suffix products | O(n) | O(1) auxiliary |
 | [Valid Sudoku](solutions/valid_sudoku.py) | Arrays & Hashing | Solved | Track digits seen in every row, column, and box | O(1) | O(1) |
+| [Longest Consecutive Sequence](solutions/longest_consecutive_sequence.py) | Arrays & Hashing | Solved | Expand only from values with no predecessor | O(n) | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -184,6 +185,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Each filled cell must be new to its row, column, and 3-by-3 box.
 - Three collections of seen digits expose any repeated value immediately.
+
+### Longest Consecutive Sequence
+
+- A sequence start has no predecessor in the set.
+- Expanding only from starts visits every consecutive run without redundant scans.
 
 ### Rotate Image
 
