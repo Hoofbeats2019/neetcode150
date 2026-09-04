@@ -132,6 +132,7 @@ The following rules apply to every problem and solution in this repository:
 | [Plus One](solutions/plus_one.py) | Math & Geometry | Solved | Scan right to left and propagate carry through trailing nines | O(n) | O(1) auxiliary |
 | [Pow(x, n)](solutions/pow_x_n.py) | Math & Geometry | Solved | Recursive exponentiation by squaring | O(log |n|) | O(log |n|) |
 | [Multiply Strings](solutions/multiply_strings.py) | Math & Geometry | Solved | Grade-school digit multiplication with a result array and carry propagation | O(m × n) | O(m + n) |
+| [Detect Squares](solutions/detect_squares.py) | Math & Geometry | Solved | Scan vertical partners and multiply the three required point frequencies | O(u) per count | O(u) |
 
 ## Learning notes
 
@@ -175,6 +176,13 @@ The following rules apply to every problem and solution in this repository:
 - Store each pair's ones digit at its right result position and carry the remaining value one position left.
 - A product of lengths `m` and `n` fits in at most `m + n` result digits.
 - The nested loops visit every digit pair once, giving O(m × n) time and O(m + n) space.
+
+### Detect Squares
+
+- Fix the query point as one corner and scan stored points with the same x-coordinate as possible vertical partners.
+- Each vertical partner determines the side length and exactly two possible horizontal directions for the remaining corners.
+- Multiply the frequencies of the vertical partner and both remaining corners so duplicate points contribute separate choices.
+- A count checks each distinct stored coordinate once, using O(u) time and O(u) stored frequencies.
 
 ### Set Matrix Zeroes
 
