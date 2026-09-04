@@ -161,6 +161,7 @@ The following rules apply to every problem and solution in this repository:
 | [Multiply Strings](solutions/multiply_strings.py) | Math & Geometry | Solved | Grade-school digit multiplication with a result array and carry propagation | O(m × n) | O(m + n) |
 | [Detect Squares](solutions/detect_squares.py) | Math & Geometry | Solved | Scan vertical partners and multiply the three required point frequencies | O(u) per count | O(u) |
 | [Number of 1 Bits](solutions/number_of_1_bits.py) | Bit Manipulation | Solved | Mask the rightmost bit, then shift right to inspect the next bit | O(log n) | O(1) |
+| [Reverse Bits](solutions/reverse_bits.py) | Bit Manipulation | Solved | Move each set bit at position i to position 31 - i | O(1) | O(1) |
 
 ## Learning notes
 
@@ -1249,3 +1250,8 @@ The following rules apply to every problem and solution in this repository:
 
 - Masking with `1` reveals whether the current rightmost bit is set.
 - Right-shifting moves the next bit into that position; add each revealed bit to the count.
+
+### Reverse Bits
+
+- The bit at position `i` belongs at position `31 - i` after reversal.
+- Checking all 32 positions preserves leading zeroes, which are meaningful for a 32-bit unsigned integer.
