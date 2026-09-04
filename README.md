@@ -19,6 +19,7 @@ The following rules apply to every problem and solution in this repository:
 | --- | --- | --- | --- | --- | --- |
 | [Largest Rectangle in Histogram](solutions/largest_rectangle_in_histogram.py) | Stack | Solved | Monotonic stack with left and right boundaries | O(n) | O(n) |
 | [Contains Duplicate](solutions/contains_duplicate.py) | Arrays & Hashing | Solved | Track values in a set and return on the first repeat | O(n) | O(n) |
+| [Single Number](solutions/single_number.py) | Arrays & Hashing | Solved | XOR all values so each duplicate pair cancels out | O(n) | O(1) |
 | [Valid Anagram](solutions/valid_anagram.py) | Arrays & Hashing | Solved | Compare character-frequency maps | O(n + m) | O(n + m) |
 | [Two Sum](solutions/two_sum.py) | Arrays & Hashing | Solved | Map each value to its index and look up its complement | O(n) | O(n) |
 | [Group Anagrams](solutions/group_anagrams.py) | Arrays & Hashing | Solved | Group words by their sorted-character key | O(n × k log k) | O(n × k) |
@@ -167,6 +168,11 @@ The following rules apply to every problem and solution in this repository:
 - A set records each value encountered during one left-to-right scan.
 - If a value is already in the set, the list contains a duplicate and the scan can stop immediately.
 - When the scan ends without a repeated value, all values are distinct.
+
+### Single Number
+
+- XOR-ing a value with itself produces zero, so each duplicated pair cancels out.
+- Starting from zero and XOR-ing every number leaves the one unpaired value.
 
 ### Valid Anagram
 
