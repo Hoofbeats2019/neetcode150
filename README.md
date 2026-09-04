@@ -164,6 +164,7 @@ The following rules apply to every problem and solution in this repository:
 | [Reverse Bits](solutions/reverse_bits.py) | Bit Manipulation | Solved | Move each set bit at position i to position 31 - i | O(1) | O(1) |
 | [Counting Bits](solutions/counting_bits.py) | Bit Manipulation | Solved | Build counts from each number's half and final binary digit | O(n) | O(n) |
 | [Missing Number](solutions/missing_number.py) | Bit Manipulation | Solved | XOR the full range and array values so present numbers cancel | O(n) | O(1) |
+| [Sum of Two Integers](solutions/sum_of_two_integers.py) | Bit Manipulation | Solved | Repeated XOR partial sums and shifted AND carries | O(1) | O(1) |
 
 ## Learning notes
 
@@ -1267,3 +1268,9 @@ The following rules apply to every problem and solution in this repository:
 
 - XOR every value from 0 through the array length, then XOR every array value.
 - Each present number appears twice and cancels itself out, leaving the missing value.
+
+### Sum of Two Integers
+
+- XOR produces the partial sum while ignoring carries.
+- AND identifies carry bits; shifting them left moves each carry to its correct position for the next iteration.
+- A 32-bit mask keeps Python's negative-number bit operations finite and consistent with signed integer behavior.
