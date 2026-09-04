@@ -129,6 +129,7 @@ The following rules apply to every problem and solution in this repository:
 | [Spiral Matrix](solutions/spiral_matrix.py) | Math & Geometry | Solved | Shrink four boundaries after traversing each outer edge | O(m × n) | O(1) auxiliary |
 | [Set Matrix Zeroes](solutions/set_matrix_zeroes.py) | Math & Geometry | Solved | Use the first row and column as zero markers | O(m × n) | O(1) |
 | [Non-Cyclical Number](solutions/non_cyclical_number.py) | Math & Geometry | Solved | Slow and fast pointers over digit-square transformations | O(log n) | O(1) |
+| [Plus One](solutions/plus_one.py) | Math & Geometry | Solved | Scan right to left and propagate carry through trailing nines | O(n) | O(1) auxiliary |
 
 ## Learning notes
 
@@ -152,6 +153,12 @@ The following rules apply to every problem and solution in this repository:
 - Advance one value by one transformation and the other by two transformations.
 - Reaching `1` proves the number is non-cyclical; an earlier pointer meeting proves it is trapped in another cycle.
 - The algorithm stores only the two current values and a digit-sum accumulator.
+
+### Plus One
+
+- Start at the least significant digit because that is where incrementing begins.
+- A digit below nine absorbs the carry after increasing by one; every trailing nine becomes zero.
+- If the carry passes every digit, return a new list with a leading one.
 
 ### Set Matrix Zeroes
 
