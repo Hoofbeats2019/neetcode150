@@ -30,6 +30,7 @@ The following rules apply to every problem and solution in this repository:
 | [Valid Palindrome](solutions/valid_palindrome.py) | Two Pointers | Solved | Skip non-alphanumeric characters from both ends | O(n) | O(1) |
 | [Two Sum II - Input Array Is Sorted](solutions/two_sum_ii_input_array_is_sorted.py) | Two Pointers | Solved | Move two pointers according to their sum | O(n) | O(1) |
 | [3Sum](solutions/three_sum.py) | Two Pointers | Solved | Sort, then fix one value and scan the remaining pair | O(n²) | O(1) auxiliary |
+| [Container With Most Water](solutions/container_with_most_water.py) | Two Pointers | Solved | Move the pointer at the shorter boundary | O(n) | O(1) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -208,6 +209,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Sort values, then fix one value and solve a two-sum search over the remaining suffix.
 - Skip duplicate fixed values and duplicate left values after recording a triplet.
+
+### Container With Most Water
+
+- The shorter wall limits the current container height.
+- Moving the taller wall cannot improve that limiting height, so move only the shorter side.
 
 ### Rotate Image
 
