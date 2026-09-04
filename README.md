@@ -32,6 +32,7 @@ The following rules apply to every problem and solution in this repository:
 | [3Sum](solutions/three_sum.py) | Two Pointers | Solved | Sort, then fix one value and scan the remaining pair | O(n²) | O(1) auxiliary |
 | [Container With Most Water](solutions/container_with_most_water.py) | Two Pointers | Solved | Move the pointer at the shorter boundary | O(n) | O(1) |
 | [Trapping Rain Water](solutions/trapping_rain_water.py) | Two Pointers | Solved | Track the highest boundaries from both ends | O(n) | O(1) |
+| [Best Time to Buy and Sell Stock](solutions/best_time_to_buy_and_sell_stock.py) | Sliding Window | Solved | Track the cheapest earlier price | O(n) | O(1) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -220,6 +221,11 @@ The following rules apply to every problem and solution in this repository:
 
 - The shorter current side determines which boundary can be finalized.
 - Its maximum boundary minus its current height is the trapped water at that position.
+
+### Best Time to Buy and Sell Stock
+
+- Keep the lowest price seen before the current day.
+- The current price minus that low is the best sale using the current day.
 
 ### Rotate Image
 
