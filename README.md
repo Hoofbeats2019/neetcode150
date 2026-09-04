@@ -24,6 +24,7 @@ The following rules apply to every problem and solution in this repository:
 | [Group Anagrams](solutions/group_anagrams.py) | Arrays & Hashing | Solved | Group words by their sorted-character key | O(n × k log k) | O(n × k) |
 | [Top K Frequent Elements](solutions/top_k_frequent_elements.py) | Arrays & Hashing | Solved | Bucket values by frequency | O(n) | O(n) |
 | [Encode and Decode Strings](solutions/encode_and_decode_strings.py) | Arrays & Hashing | Solved | Prefix each string with its length | O(total characters) | O(total characters) |
+| [Product of Array Except Self](solutions/product_of_array_except_self.py) | Arrays & Hashing | Solved | Combine prefix and suffix products | O(n) | O(1) auxiliary |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -172,6 +173,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Prefixing each string with its length makes every boundary unambiguous.
 - The decoder reads the length, then consumes exactly that many following characters.
+
+### Product of Array Except Self
+
+- The first pass stores the product of all values left of each index.
+- A reverse pass multiplies in the product of values to the right.
 
 ### Rotate Image
 
