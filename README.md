@@ -22,6 +22,7 @@ The following rules apply to every problem and solution in this repository:
 | [Valid Anagram](solutions/valid_anagram.py) | Arrays & Hashing | Solved | Compare character-frequency maps | O(n + m) | O(n + m) |
 | [Two Sum](solutions/two_sum.py) | Arrays & Hashing | Solved | Map each value to its index and look up its complement | O(n) | O(n) |
 | [Group Anagrams](solutions/group_anagrams.py) | Arrays & Hashing | Solved | Group words by their sorted-character key | O(n × k log k) | O(n × k) |
+| [Top K Frequent Elements](solutions/top_k_frequent_elements.py) | Arrays & Hashing | Solved | Bucket values by frequency | O(n) | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -160,6 +161,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Sorting a word gives every anagram the same canonical key.
 - A map from that key to a list of words collects each group.
+
+### Top K Frequent Elements
+
+- Count each value, then place it in the bucket matching its frequency.
+- Reading buckets from highest frequency down produces the first ``k`` answers.
 
 ### Rotate Image
 
