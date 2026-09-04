@@ -39,6 +39,7 @@ The following rules apply to every problem and solution in this repository:
 | [Minimum Window Substring](solutions/minimum_window_substring.py) | Sliding Window | Solved | Expand and shrink a frequency-counted window | O(n + m) | O(n + m) |
 | [Sliding Window Maximum](solutions/sliding_window_maximum.py) | Sliding Window | Solved | Maintain decreasing candidate indexes in a deque | O(n) | O(k) |
 | [Valid Parentheses](solutions/valid_parentheses.py) | Stack | Solved | Match closing brackets against a stack | O(n) | O(n) |
+| [Min Stack](solutions/min_stack.py) | Stack | Solved | Store each value with the minimum through that position | O(1) per operation | O(n) |
 | [Binary Search](solutions/binary_search.py) | Binary Search | Solved | Recursive binary search with index boundaries | O(log n) | O(log n) |
 | [Search a 2D Matrix](solutions/search_a_2d_matrix.py) | Binary Search | Solved | Binary search for the row, then within the row | O(log(m x n)) | O(1) |
 | [Koko Eating Bananas](solutions/koko_eating_bananas.py) | Binary Search | Solved | Binary search for the minimum feasible eating rate | O(n log m) | O(1) |
@@ -262,6 +263,11 @@ The following rules apply to every problem and solution in this repository:
 
 - Push opening brackets onto a stack.
 - Every closing bracket must match and remove the most recent opening bracket.
+
+### Min Stack
+
+- Store the running minimum next to each pushed value.
+- The top tuple gives both the current top and current minimum in constant time.
 
 ### Rotate Image
 
