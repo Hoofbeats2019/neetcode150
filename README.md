@@ -160,7 +160,7 @@ The following rules apply to every problem and solution in this repository:
 | [Pow(x, n)](solutions/pow_x_n.py) | Math & Geometry | Solved | Recursive exponentiation by squaring | O(log |n|) | O(log |n|) |
 | [Multiply Strings](solutions/multiply_strings.py) | Math & Geometry | Solved | Grade-school digit multiplication with a result array and carry propagation | O(m × n) | O(m + n) |
 | [Detect Squares](solutions/detect_squares.py) | Math & Geometry | Solved | Scan vertical partners and multiply the three required point frequencies | O(u) per count | O(u) |
-| [Number of 1 Bits](solutions/number_of_1_bits.py) | Bit Manipulation | Solved | Mask the rightmost bit, then shift right to inspect the next bit | O(log n) | O(1) |
+| [Number of 1 Bits](solutions/number_of_1_bits.py) | Bit Manipulation | Solved | Repeatedly clear the rightmost set bit | O(k), k = number of set bits | O(1) |
 | [Reverse Bits](solutions/reverse_bits.py) | Bit Manipulation | Solved | Move each set bit at position i to position 31 - i | O(1) | O(1) |
 | [Counting Bits](solutions/counting_bits.py) | Bit Manipulation | Solved | Build counts from each number's half and final binary digit | O(n) | O(n) |
 
@@ -1249,8 +1249,8 @@ The following rules apply to every problem and solution in this repository:
 
 ### Number of 1 Bits
 
-- Masking with `1` reveals whether the current rightmost bit is set.
-- Right-shifting moves the next bit into that position; add each revealed bit to the count.
+- `n & (n - 1)` clears exactly the rightmost set bit in `n`.
+- Count how many times this operation is possible; that count equals the number of `1` bits.
 
 ### Reverse Bits
 
